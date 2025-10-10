@@ -1,0 +1,63 @@
+2025-10-10
+Mathematics, Abstract Algebra
+
+---
+
+An integral domain is a non-trivial commutative ring in which the
+product of any two non-zero elements is non-zero.  Which of the
+following statements is true?
+
+---
+
+Every finite integral domain is a field.
+
+---
+
+Every integral domain is a field.
+
+---
+
+Every infinite integral domain is a field.
+
+---
+
+All of the above.
+
+---
+
+None of the above.
+
+---
+
+Every infinite integral domain is not a field.  For example, the set
+of all integers is an integral domain but it is not a field.  As a
+result, every integral domain is not a field either.
+
+In fact, every finite integral domain is a field.  This can be shown
+as follows.
+
+Let \( R \) be a finite integral domain.  Let \( a \in R \) such that
+\( a \ne 0 \).  Consider the set
+\[
+  A = \{ a, a^2, a^3, \dots \}.
+\]
+Since a ring is closed under multiplication, every element of \( A \)
+is also an element of \( R \).  Therefore \( A \subseteq R \).  Since
+\( R \) is finite, \( A \) is finite too.  Therefore there must be
+positive integers \( m \) and \( n \) such that \( m \gt n \) and
+\[
+  a^m = a^n
+\]
+From the above equation, we get
+\[
+  a \cdot a^{m - n - 1} \cdot a^n = 1 \cdot a^n.
+\]
+By the cancellation property of integral domain,
+\[
+  a \cdot a^{m - n - 1} = 1.
+\]
+Since a ring is closed under multiplication and since \( m - n - 1 \ge
+0 \), we get \( a^{m - n - 1} \in R \).
+
+Thus every non-zero \( a \in R \) has a multiplicative inverse in
+\( R \).
