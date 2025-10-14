@@ -1,0 +1,64 @@
+2025-10-14
+Technology, History
+
+---
+
+In which year did a chess-playing computer first win a game against a
+reigning world champion under normal tournament conditions with
+classical time controls?
+
+---
+
+1996
+
+---
+
+1948
+
+---
+
+1956
+
+---
+
+1997
+
+---
+
+2016
+
+---
+
+The first game of the 1996 Kasparov-Deep Blue match, which took place
+on 10 Feb 1996, marked the first time a computer defeated a reigning
+world champion in a single game under normal tournament conditions
+with classical time controls.  Kasparov eventually won the match 4–2,
+but the first game of the 1996 match was a historic milestone in
+computer chess.
+
+Later, in the 1997 rematch held from 03 May to 11 May 1997, an
+improved version of Deep Blue won 3&frac12;–2&frac12, becoming the
+first computer to defeat a reigning world champion in a full match.
+
+The other years mentioned in the quiz options are also notable in the
+development of computer programs playing board games against humans.
+
+In 1948, Alan Turing and David Champernowne developed a chess program
+known as <em>Turochamp</em>.  The name comes from the surnames of the
+two inventors.  The program was not implemented on an actual computer
+during Turing's lifetime.  However, it was used to play against humans
+by simulating the algorithm on paper.
+
+In 1956, <em>Los Alamos chess</em> became the first program to play a
+chess-like game.  Los Alamos chess is a variant of chess played without
+bishops on a 6×6 board.  The program was written at Los Alamos
+Scientific Laboratory by Paul Stein and Mark Wells for the
+Mathematical Analyser Numerical Integrator and Automatic Computer
+Model I (MANIAC I).
+
+On 09 Mar 2016, a computer program named AlphaGo, developed by
+DeepMind (a British AI company acquired by Google in 2014), won a game
+against Lee Sedol and became the first program to defeat a human
+professional Go player on a full-sized 19x19 board without
+handicaps.  In the five-game match between AlphaGo and Sedol, held
+until 15 Mar 2016, AlphaGo won 4–1.
