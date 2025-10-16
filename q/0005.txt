@@ -1,0 +1,59 @@
+2025-10-16
+Chemistry
+
+---
+
+Which of the following statements is true about <em>phosphor</em>?
+
+---
+
+Electrons in it are excited to higher energy states when exposed to
+radiation.
+
+---
+
+It is a chemical element with atomic number 15.
+
+---
+
+It is used as a filament in incandescent lamps.
+
+---
+
+None of the above.
+
+---
+
+All of the above.
+
+---
+
+A <em>phosphor</em> is a substance that exhibits the phenomenon of
+phosphorescence or fluorescence.  When exposed to certain forms of
+radiation (such as ultraviolet light or electron beams), electrons in
+its crystal lattice or molecules are excited to higher energy states.
+As they return to their ground state, they emit visible light.  If the
+substance stops glowing almost immediately once the radiation is
+turned off, it is said to be <em>fluorescent</em>.  If it continues to
+glow for some time after the radiation is removed, it is said to
+be <em>phosphorescent</em>.
+
+Fluorescent materials are used in fluorescent lamps, where phosphor
+coatings convert ultraviolet light into visible light, and in
+cathode-ray tube (CRT) displays, where electron beams excite the
+phosphor coating on the inner surface of the screen to produce images.
+Phosphorescent materials are commonly used in glow-in-the-dark watch
+dials, safety signs and toys.
+
+The chemical element with atomic number 15 is <em>phosphorus</em> (not
+phosphor).  White phosphorus glows faintly when exposed to oxygen, but
+this glow is caused by oxidation, not phosphorescence.  This
+phenomenon is known as <em>chemiluminescence</em>, the emission of
+light as a result of a chemical reaction.  The chemiluminescence of
+white phosphorus originally inspired the term phosphorescence,
+although the two are unrelated phenomena.
+
+Finally, neither phosphor nor phosphorus is used as a filament in
+incandescent lamps.  Filaments in such lamps are typically made of
+tungsten.  As mentioned earlier, phosphors, may be used as coatings in
+fluorescent lamps, but they do not serve as filaments.
