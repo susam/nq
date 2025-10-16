@@ -1,5 +1,7 @@
 2025-10-10
+Integral Domain and Field
 Mathematics, Abstract Algebra
+Susam Pal
 
 ---
 
