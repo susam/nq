@@ -26,3 +26,6 @@ katex:
 	    echo KaTeX is already present.; \
 	fi
 	rm -f katex.tgz
+
+cp:
+	cp -v nq.html ~/git/susam.net/content/tree/
