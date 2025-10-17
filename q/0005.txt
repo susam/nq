@@ -58,5 +58,5 @@ although the two are unrelated phenomena.
 
 Finally, neither phosphor nor phosphorus is used as a filament in
 incandescent lamps.  Filaments in such lamps are typically made of
-tungsten.  As mentioned earlier, phosphors, may be used as coatings in
+tungsten.  As mentioned earlier, phosphors may be used as coatings in
 fluorescent lamps, but they do not serve as filaments.
