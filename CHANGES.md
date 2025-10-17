@@ -1,6 +1,23 @@
 Changelog
 =========
 
+2.0.0 (UNRELEASED)
+------------------
+
+### Added
+
+- Quiz #2 with questions #6 to #10.
+
+### Changed
+
+- Replace "None of the above" option for Question #5 (Phosphor) with
+  another incorrect answer.
+
+### Fixed
+
+- Hide 'About' page by default to prevent initial flash of text.
+
+
 1.0.0 (2025-10-16)
 ------------------
 

@@ -31,10 +31,8 @@ The hash value in the URL determines the quiz presented to you.
 
 - If it is an integer like [#1][nq1], then the corresponding quiz with
   a set of five questions is loaded.
-
 - If the hash value starts with the prefix `q`, like [`#q1`][nqq1],
   then a specific question is loaded.
-
 - You can also mix and match questions to form a custom quiz.  For
   example [`#q1,3,5`][nqq135] loads questions 1, 3 and 5 together.
 
