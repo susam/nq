@@ -118,6 +118,9 @@
         font-size: 3em;
         margin: 0;
       }
+      .award p strong {
+        white-space: pre;
+      }
       .card > :first-child, .explanation > :first-child, .award > :first-child {
         margin-top: 0;
       }
@@ -425,14 +428,14 @@
         ]
         messages.push('You scored ' + formatTotalScore(scored) +
                       ' out of ' + maxScore + '.')
-        messages.push('Your nerd level today: <strong>' + [
-          'Rookie',
-          'Nerdling',
-          'Apprentice Nerd',
-          'Pro Nerd',
-          'Elite Nerd',
-          'Ultimate Nerd'
-        ][grade] + '</strong>.')
+        messages.push('You have been deemed ' + [
+          'a <strong>Neophyte</strong>',
+          'a <strong>Nerdling</strong>',
+          'an <strong>Apprentice Nerd</strong>',
+          'a <strong>Pro Nerd</strong>',
+          'an <strong>Elite Nerd</strong>',
+          'the <strong>Ultimate Nerd</strong>'
+        ][grade] + '.')
         messages.push([
           'Every great nerd starts somewhere.',
           'A spark of nerdiness has been lit.',

@@ -12,6 +12,11 @@ Changelog
 
 - Replace "None of the above" option for Question #5 (Phosphor) with
   another incorrect answer.
+- Change nerd level phrase from "Your nerd level today" to "You have
+  been deemed".
+- Rename nerd level "Rookie" to "Neophyte".
+- Prevent wrapping of multi-word nerd levels like "Pro Nerd" to ensure
+  the full name stays on one line.
 
 ### Fixed
 
