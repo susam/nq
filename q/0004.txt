@@ -1,6 +1,6 @@
 2025-10-14
 Chess-Playing Computer
-Technology, History
+Chess, Technology, History
 Susam Pal
 
 ---

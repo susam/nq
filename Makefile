@@ -27,7 +27,7 @@ katex:
 	fi
 	rm -f katex.tgz
 
-cp:
+pub:
 	cp -v nq.html ~/git/susam.net/content/tree/
 	@echo "Creating subshell to review change and publish"
 	cd ~/git/susam.net/ && git status && git add -p && make pub

@@ -1,0 +1,32 @@
+YYYY-MM-DD
+Title
+Tag1, Tag2, etc.
+Author
+
+---
+
+Question
+
+---
+
+Correct answer
+
+---
+
+Distractor 1
+
+---
+
+Distractor 2
+
+---
+
+Distractor 3
+
+---
+
+Distractor 4
+
+---
+
+Explanation

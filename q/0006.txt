@@ -1,0 +1,61 @@
+2025-10-25
+Royal Fork
+Chess, Terminology
+Susam Pal
+
+---
+
+Which of the following statements is true about a <em>royal fork</em>
+in chess?
+
+---
+
+It is a double attack on the opponent's king and queen by a single piece.
+
+---
+
+It is a double attack on two pieces of the opponent by the queen.
+
+---
+
+It is an opening tactic where the queen and bishop coordinate to
+deliver checkmate on f7 by White or on f2 by Black.
+
+---
+
+It is an endgame pattern where two queens coordinate to checkmate the
+opponent's king.
+
+---
+
+It is a tactic in which a piece is attacked but cannot move because
+doing so would expose its king to check.
+
+---
+
+When two attacks are made with one move, it is called a <em>double
+attack</em>.  If both attacks are made by the same piece, it is called
+a <em>fork</em>.  In chess, a fork occurs when one piece attacks two
+or more of the opponent's pieces at the same time.
+
+A <em>royal fork</em> is a special type of fork in which a single
+piece attacks the opponent's king and queen at the same time. Since
+the opponent must respond to the check against the king, the queen is
+usually captured on the following move, making this the highest
+material-gaining fork possible.
+
+A fork involving the queen attacking two of the opponent's pieces is
+simply called a <em>queen fork</em>, not a royal fork.
+
+The opening tactic where the queen and bishop coordinate to deliver
+checkmate on f7 by White or on f2 by Black is called the Scholar's
+Mate.
+
+Checkmating with two queens is an elementary endgame pattern that
+relies on restricting the opposing king's mobility and coordinating
+both queens to force checkmate.  This pattern is unrelated to fork.
+
+If a defending piece cannot move because doing so would expose a more
+valuable piece behind it to attack, the situation is called a
+<em>pin</em>.  If the more valuable piece is the king, the pin is
+called an <em>absolute pin</em>.
