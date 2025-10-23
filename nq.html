@@ -176,6 +176,10 @@
           color: #bbb;
           border-color: #666;
         }
+        button:disabled {
+          background: #222;
+          color: #999;
+        }
         blockquote, pre, kbd {
           background: #000;
           box-shadow: 0 0 0.5em #333;
@@ -245,11 +249,17 @@
 
       function setupPage () {
         const maxSet = Math.floor(CARDS.length / 5)
-        const hash = window.location.hash.slice(1)
+        let hash = window.location.hash.slice(1)
+        let reveal = false
+
+        if (hash.slice(-1) === 'r') {
+          hash = hash.slice(0, -1)
+          reveal = true
+        }
 
         if (/^q[\d,]+$/.test(hash)) {
           models = createModels(hash.slice(1).split(',').map(Number).filter(Boolean))
-          setupQuiz(models)
+          setupQuiz(models, reveal)
         } else if (/^\d+$/.test(hash)) {
           const n = parseInt(hash)
           if (n === 0) {
@@ -261,7 +271,7 @@
             return
           }
           models = createModels(range(5 * (n - 1) + 1, 5 * n + 1))
-          setupQuiz(models)
+          setupQuiz(models, reveal)
         } else if (hash in SCREENS) {
           setupScreen(hash)
         } else {
@@ -294,7 +304,7 @@
         return model
       }
 
-      function setupQuiz (models, quizNo) {
+      function setupQuiz (models, reveal) {
         const main = document.querySelector('main')
         const h1 = document.createElement('h1')
         const form = document.createElement('form')
@@ -303,13 +313,22 @@
         for (let i = 0; i < models.length; i++) {
           form.append(setupCard(models[i]))
         }
-        const button = document.createElement('button')
-        button.id = 'submit'
-        button.textContent = 'Submit Answers'
-        button.addEventListener('click', markCards)
-        form.append(button)
+        const submit = document.createElement('button')
+        submit.id = 'submit'
+        if (reveal) {
+          submit.textContent = 'Try Quiz'
+          submit.addEventListener('click', redirectToTake)
+        } else {
+          submit.textContent = 'Reveal Answer' + (models.length >= 2 ? 's' : '')
+          submit.addEventListener('click', redirectToReveal)
+        }
+        form.append(submit)
         main.replaceChildren(h1, form)
         window.scroll({ top: 0 })
+        if (reveal) {
+          answerCards()
+          markCards(false)
+        }
       }
 
       function setupError (msg) {
@@ -343,6 +362,7 @@
           radio.type = 'radio'
           radio.name = 'q' + model.qid
           radio.id = 'r' + option.oid
+          radio.addEventListener('change', handleRadio)
           spanForRadio.append(radio)
           spanForOption.innerHTML = option.text
           label.append(spanForRadio, spanForOption)
@@ -360,21 +380,58 @@
         return card
       }
 
-      function markCards (e) {
-        e.preventDefault()
+      function handleRadio () {
         const submit = document.getElementById('submit')
+        submit.textContent = 'Submit Answer' + (models.length >= 2 ? 's' : '')
+        submit.removeEventListener('click', redirectToReveal)
+        submit.addEventListener('click', markAnswers)
+      }
+
+      function redirectToReveal (e) {
+        e.preventDefault()
+        window.location.hash += 'r'
+      }
+
+      function redirectToTake (e) {
+        e.preventDefault()
+        window.location.hash = window.location.hash.replace('r', '')
+      }
+
+      function answerCards () {
+        for (const model of models) {
+          answerCard(model)
+        }
+      }
+
+      function answerCard (model) {
+        for (const option of model.options) {
+          const radio = document.getElementById('r' + option.oid)
+          if (option.correct) {
+            radio.checked = true
+          }
+        }
+      }
+
+      function markAnswers (e) {
+        e.preventDefault()
+        markCards(true)
+      }
+
+      function markCards (award) {
         let scored = 0
         for (const model of models) {
-          scored += markCard(model)
+          scored += markCard(model, award)
           explainAnswer(model, scored)
         }
-        showAward(scored)
+        if (award) {
+          document.getElementById('submit').disabled = true
+          showAward(scored)
+        }
         renderKaTeX()
-        submit.disabled = true
         window.scroll({ top: 0, behavior: 'smooth' })
       }
 
-      function markCard (model) {
+      function markCard (model, award) {
         const TICK_MARK = '\u00a0\u00a0\u2713'
         const CROSS_MARK = '\u00a0\u00a0\u2717'
         const card = document.getElementById('c' + model.qid)
@@ -403,7 +460,9 @@
             label.append(TICK_MARK)
           }
         }
-        score.textContent = 'Scored: ' + formatScore(scored)
+        if (award) {
+          score.textContent = 'Scored: ' + formatScore(scored)
+        }
         return scored
       }
 

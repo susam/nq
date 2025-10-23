@@ -10,13 +10,17 @@ Changelog
 
 ### Changed
 
-- Replace "None of the above" option for Question #5 (Phosphor) with
+- Replace 'None of the above' option for Question #5 (Phosphor) with
   another incorrect answer.
-- Change nerd level phrase from "Your nerd level today" to "You have
-  been deemed".
-- Rename nerd level "Rookie" to "Neophyte".
-- Prevent wrapping of multi-word nerd levels like "Pro Nerd" to ensure
+- Change nerd level phrase from 'Your nerd level today' to 'You have
+  been deemed'.
+- Rename nerd level 'Rookie' to 'Neophyte'.
+- Prevent wrapping of multi-word nerd levels like 'Pro Nerd' to ensure
   the full name stays on one line.
+- Use a faded dark colour scheme for disabled button in dark mode.
+- Change the initial submit button from 'Submit Answers' to 'Reveal
+  Answers'.  As soon as one question is answered, the submit button
+  changes to 'Submit Answers'.
 
 ### Fixed
 
