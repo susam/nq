@@ -146,8 +146,21 @@
         border-color: #900;
       }
       .meta {
-        text-align: right;
+        display: flex;
+        align-items: center;
+      }
+      .skipped .meta, .correct .meta, .incorrect .meta {
+        margin-top: 1em;
+      }
+      .result {
+        flex: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .info {
+        flex: 1;
         font-size: small;
+        text-align: right;
       }
       .score {
         margin: 2em auto;
@@ -266,7 +279,7 @@
           const qids = Array.from(
             new Set(hash.slice(1).split(',').map(Number).filter(Boolean))
           )
-          for (qid of qids) {
+          for (const qid of qids) {
             if (qid < 1 || qid > CARDS.length) {
               setupError('Question #' + qid + ' does not exist.')
               return
@@ -296,8 +309,8 @@
         for (const qid of qids) {
           models.push(createModel(qid))
         }
-        return models
         log('created models')
+        return models
       }
 
       function createModel (qid) {
@@ -406,14 +419,15 @@
         }
 
         const meta = document.createElement('div')
-        const info = document.createElement('info')
+        const info = document.createElement('div')
         const text = 'QID #' + model.qid + ' | ' + formatDate(model.date) + ' | '
         const score = document.createElement('span')
         meta.className = 'meta'
         meta.id = 'm' + model.qid
+        info.className = 'info'
+        info.append(text, score)
         score.id = 's' + model.qid
         score.textContent = 'Penalty: ' + model.penalty.toFixed(2)
-        info.append(text, score)
         meta.append(info)
         card.append(meta)
         return card
@@ -487,7 +501,9 @@
         const TICK_MARK = '\u00a0\u00a0\u2713'
         const CROSS_MARK = '\u00a0\u00a0\u2717'
         const card = document.getElementById('c' + model.qid)
+        const meta = document.getElementById('m' + model.qid)
         const score = document.getElementById('s' + model.qid)
+        let result = 'Skipped'
         card.className = 'skipped card'
         let points = 0
         for (const option of model.options) {
@@ -497,11 +513,13 @@
           label.className = ''
           if (radio.checked) {
             if (option.correct) {
+              result = 'Correct'
               card.className = 'correct card'
               label.className = 'correct'
               points = 1
               label.append(TICK_MARK)
             } else {
+              result = 'Incorrect'
               card.className = 'incorrect card'
               label.className = 'incorrect'
               points = model.penalty
@@ -513,6 +531,10 @@
           }
         }
         if (scoring) {
+          const div = document.createElement('div')
+          div.className = 'result'
+          div.textContent = result
+          meta.prepend(div)
           score.textContent = 'Scored: ' + formatScore(points)
         }
         return points

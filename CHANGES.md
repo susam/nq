@@ -7,6 +7,11 @@ Changelog
 ### Added
 
 - Quiz #2 with questions #6 to #10.
+- Add quiz number or question number to the title.  If the quiz is
+  composed of an arbitrary list of questions, mention 'Assorted' in
+  the title.
+- Show 'Correct' vs 'Incorrect' result explicitly while marking
+  answers.
 
 ### Changed
 
