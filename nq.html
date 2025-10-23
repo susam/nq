@@ -234,6 +234,7 @@
     <script>
       const SCREENS = {}
       let models
+      let answering
 
       function init () {
         for (const screen of ['about']) {
@@ -248,11 +249,11 @@
       function setupPage () {
         const maxSet = Math.floor(CARDS.length / 5)
         let hash = window.location.hash.slice(1)
-        let reveal = false
+        let revealing = false
 
         if (hash.slice(-1) === 'r') {
           hash = hash.slice(0, -1)
-          reveal = true
+          revealing = true
         }
 
         if (/^q[\d,]+$/.test(hash)) {
@@ -266,7 +267,7 @@
             }
           }
           models = createModels(qids)
-          setupQuiz(models, reveal)
+          setupQuiz(models, revealing)
         } else if (/^\d+$/.test(hash)) {
           const n = parseInt(hash)
           if (n < 1 || n > maxSet) {
@@ -274,7 +275,7 @@
             return
           }
           models = createModels(range(5 * (n - 1) + 1, 5 * n + 1))
-          setupQuiz(models, reveal)
+          setupQuiz(models, revealing)
         } else if (hash in SCREENS) {
           setupScreen(hash)
         } else {
@@ -307,28 +308,34 @@
         return model
       }
 
-      function setupQuiz (models, reveal) {
+      function setupQuiz (models, revealing) {
         const main = document.querySelector('main')
         const h1 = document.createElement('h1')
         const form = document.createElement('form')
+        const submit = document.createElement('button')
+        const p = document.createElement('p')
         h1.textContent = 'Nerd Quiz'
         form.id = 'form'
         for (let i = 0; i < models.length; i++) {
           form.append(setupCard(models[i]))
         }
-        const submit = document.createElement('button')
         submit.id = 'submit'
-        if (reveal) {
+        p.id = 'prompt'
+        if (revealing) {
           submit.textContent = 'Try Quiz'
           submit.addEventListener('click', redirectToTake)
+          p.style.display = 'none'
         } else {
           submit.textContent = 'Reveal Answer' + (models.length >= 2 ? 's' : '')
           submit.addEventListener('click', redirectToReveal)
+          p.textContent = 'Select an answer to begin the quiz.'
+          p.style.fontStyle = 'italic'
+          p.style.textAlign = 'center'
         }
-        form.append(submit)
+        form.append(submit, p)
         main.replaceChildren(h1, form)
         window.scroll({ top: 0 })
-        if (reveal) {
+        if (revealing) {
           answerCards()
           markCards(false)
         }
@@ -386,10 +393,15 @@
       }
 
       function handleRadio () {
-        const submit = document.getElementById('submit')
-        submit.textContent = 'Submit Answer' + (models.length >= 2 ? 's' : '')
-        submit.removeEventListener('click', redirectToReveal)
-        submit.addEventListener('click', markAnswers)
+        if (!answering) {
+          const submit = document.getElementById('submit')
+          const prompt = document.getElementById('prompt')
+          submit.textContent = 'Submit Answer' + (models.length >= 2 ? 's' : '')
+          submit.removeEventListener('click', redirectToReveal)
+          submit.addEventListener('click', markAnswers)
+          prompt.style.display = 'none'
+          answering = true
+        }
       }
 
       function redirectToReveal (e) {
@@ -422,27 +434,27 @@
         markCards(true)
       }
 
-      function markCards (award) {
-        let scored = 0
+      function markCards (scoring) {
+        let points = 0
         for (const model of models) {
-          scored += markCard(model, award)
-          explainAnswer(model, scored)
+          points += markCard(model, scoring)
+          explainAnswer(model, points)
         }
-        if (award) {
+        if (scoring) {
           document.getElementById('submit').disabled = true
-          showAward(scored)
+          showAward(points)
         }
         renderKaTeX()
         window.scroll({ top: 0, behavior: 'smooth' })
       }
 
-      function markCard (model, award) {
+      function markCard (model, scoring) {
         const TICK_MARK = '\u00a0\u00a0\u2713'
         const CROSS_MARK = '\u00a0\u00a0\u2717'
         const card = document.getElementById('c' + model.qid)
         const score = document.getElementById('s' + model.qid)
         card.className = 'skipped card'
-        let scored = 0
+        let points = 0
         for (const option of model.options) {
           const label = document.getElementById('l' + option.oid)
           const radio = document.getElementById('r' + option.oid)
@@ -452,12 +464,12 @@
             if (option.correct) {
               card.className = 'correct card'
               label.className = 'correct'
-              scored = 1
+              points = 1
               label.append(TICK_MARK)
             } else {
               card.className = 'incorrect card'
               label.className = 'incorrect'
-              scored = model.penalty
+              points = model.penalty
               label.append(CROSS_MARK)
             }
           } else if (option.correct) {
@@ -465,13 +477,13 @@
             label.append(TICK_MARK)
           }
         }
-        if (award) {
-          score.textContent = 'Scored: ' + formatScore(scored)
+        if (scoring) {
+          score.textContent = 'Scored: ' + formatScore(points)
         }
-        return scored
+        return points
       }
 
-      function explainAnswer (model, scored) {
+      function explainAnswer (model, points) {
         const card = document.getElementById('c' + model.qid)
         const div = document.createElement('div')
         div.className = 'explanation'
@@ -479,18 +491,18 @@
         card.append(div)
       }
 
-      function showAward (scored) {
+      function showAward (points) {
         const DOUGHNUT = '\u{1f369}'
         const BEVERAGE = '\u2615'
         const STAR = '\u2605'
         const maxScore = models.length
-        const grade = Math.max(0, Math.floor(5 * scored / maxScore))
+        const grade = Math.max(0, Math.floor(5 * points / maxScore))
         const messages = [
           grade === 0
             ? DOUGHNUT
             : (grade === 1 ? BEVERAGE : STAR.repeat(grade))
         ]
-        messages.push('You scored ' + formatTotalScore(scored) +
+        messages.push('You scored ' + formatTotalScore(points) +
                       ' out of ' + maxScore + '.')
         messages.push('You have been deemed ' + [
           'a <strong>Neophyte</strong>',
