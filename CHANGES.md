@@ -21,10 +21,13 @@ Changelog
 - Change the initial submit button from 'Submit Answers' to 'Reveal
   Answers'.  As soon as one question is answered, the submit button
   changes to 'Submit Answers'.
+- URL `#0` now shows an error instead of loading the latest quiz.
 
 ### Fixed
 
 - Hide 'About' page by default to prevent initial flash of text.
+- Do not show duplicate questions for custom quizzes like `#q1,1,2,2'`.
+- Display error when a non-existent QID is used in custom quiz URL.
 
 
 1.0.0 (2025-10-16)

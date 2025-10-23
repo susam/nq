@@ -19,9 +19,6 @@
         margin: 1em 0 0.5em 0;
         text-align: center;
       }
-      .screen h1, .screen h2 {
-        text-align: left;
-      }
       a:link { color: #00e }
       a:visited { color: #518 }
       a:focus, a:hover { color: #03f }
@@ -33,19 +30,17 @@
         margin-right: 1em;
       }
       label {
-        display: flex;
         align-items: flex-start;
+        display: flex;
         margin-bottom: 0.5em;
       }
       button {
+        display: block;
         font-family: georgia, serif;
         font-size: 1em;
-        margin-top: 1em;
-        min-width: 50%;
+        margin: 1em auto 0 auto;
         min-height: 2em;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+        min-width: 50%;
       }
       blockquote {
         border-left: thick solid #ccc;
@@ -53,15 +48,6 @@
       }
       pre {
         overflow: auto;
-      }
-      blockquote, pre {
-        padding: 0.5em;
-      }
-      blockquote *:first-child {
-        margin-top: 0;
-      }
-      blockquote *:last-child {
-        margin-bottom: 0;
       }
       pre, code {
         font-family: monospace,monospace;
@@ -73,17 +59,26 @@
       code {
         color: #050;
       }
+      blockquote, pre {
+        padding: 0.5em;
+      }
+      blockquote *:first-child {
+        margin-top: 0;
+      }
+      blockquote *:last-child {
+        margin-bottom: 0;
+      }
       footer {
         text-align: center;
       }
       footer hr {
-        margin: 2.5em auto 1.5em auto;
         border: 0;
         border-bottom: 0.15em dotted #999;
+        margin: 2.5em auto 1.5em auto;
       }
       nav a {
-        margin-right: 1.5em;
         line-height: 2.5;
+        margin-right: 1.5em;
       }
       nav a:last-child  {
         margin-right: 0;
@@ -159,6 +154,9 @@
         display: inline-block;
         border: thin solid red;
       }
+      .screen h1, .screen h2 {
+        text-align: left;
+      }
       footer, .hidden {
         display: none;
       }
@@ -173,8 +171,8 @@
         a:active { color: #f99 }
         button {
           background: #000;
-          color: #bbb;
           border-color: #666;
+          color: #bbb;
         }
         button:disabled {
           background: #222;
@@ -258,15 +256,20 @@
         }
 
         if (/^q[\d,]+$/.test(hash)) {
-          models = createModels(hash.slice(1).split(',').map(Number).filter(Boolean))
+          const qids = Array.from(
+            new Set(hash.slice(1).split(',').map(Number).filter(Boolean))
+          )
+          for (qid of qids) {
+            if (qid < 1 || qid > CARDS.length) {
+              setupError('Question #' + qid + ' does not exist.')
+              return
+            }
+          }
+          models = createModels(qids)
           setupQuiz(models, reveal)
         } else if (/^\d+$/.test(hash)) {
           const n = parseInt(hash)
-          if (n === 0) {
-            window.location.hash = '#' + maxSet
-            return
-          }
-          if (n > maxSet) {
+          if (n < 1 || n > maxSet) {
             setupError('Quiz set #' + n + ' does not exist.')
             return
           }
@@ -333,10 +336,12 @@
 
       function setupError (msg) {
         const main = document.querySelector('main')
+        const h1 = document.createElement('h1')
         const div = document.createElement('div')
+        h1.textContent = 'Nerd Quiz'
         div.className = 'error'
         div.textContent = msg
-        main.replaceChildren(div)
+        main.replaceChildren(h1, div)
       }
 
       function setupCard (model) {
