@@ -232,12 +232,14 @@
     <script defer src="js/katex/katex.min.js"></script>
     <script defer src="js/katex/contrib/auto-render.min.js"></script>
     <script>
+      const LOGGING = true
       const SCREENS = {}
       let models
       let answering
       let docTitle
 
       function init () {
+        log('initialising')
         for (const screen of ['about']) {
           SCREENS[screen] = document.getElementById(screen).innerHTML
           SCREENS[screen].className = 'screen'
@@ -246,9 +248,11 @@
         setupPage()
         document.querySelector('footer').style.display = 'block'
         window.addEventListener('hashchange', setupPage)
+        log('initialised')
       }
 
       function setupPage () {
+        log('setting up page')
         const maxSet = Math.floor(CARDS.length / 5)
         let hash = window.location.hash.slice(1)
         let revealing = false
@@ -283,14 +287,17 @@
         } else {
           window.location.hash = '#' + maxSet
         }
+        log('set up page')
       }
 
       function createModels (qids) {
+        log('creating models')
         const models = []
         for (const qid of qids) {
           models.push(createModel(qid))
         }
         return models
+        log('created models')
       }
 
       function createModel (qid) {
@@ -311,6 +318,7 @@
       }
 
       function setupQuiz (models, revealing, quizNum) {
+        log('setting up quiz')
         const main = document.querySelector('main')
         const h1 = document.createElement('h1')
         const form = document.createElement('form')
@@ -345,14 +353,17 @@
         }
         form.append(submit, p)
         main.replaceChildren(h1, form)
+        log('scrolling to top immediately')
         window.scroll({ top: 0 })
         if (revealing) {
           answerCards()
           markCards(false)
         }
+        log('set up quiz')
       }
 
       function setupError (msg) {
+        log('setting up error')
         const main = document.querySelector('main')
         const h1 = document.createElement('h1')
         const div = document.createElement('div')
@@ -361,6 +372,7 @@
         div.className = 'error'
         div.textContent = msg
         main.replaceChildren(h1, div)
+        log('setup error')
       }
 
       function setupCard (model) {
@@ -394,18 +406,22 @@
         }
 
         const meta = document.createElement('div')
+        const info = document.createElement('info')
         const text = 'QID #' + model.qid + ' | ' + formatDate(model.date) + ' | '
         const score = document.createElement('span')
         meta.className = 'meta'
+        meta.id = 'm' + model.qid
         score.id = 's' + model.qid
         score.textContent = 'Penalty: ' + model.penalty.toFixed(2)
-        meta.append(text, score)
+        info.append(text, score)
+        meta.append(info)
         card.append(meta)
         return card
       }
 
       function handleRadio () {
         if (!answering) {
+          log('switching to answering mode')
           const submit = document.getElementById('submit')
           const prompt = document.getElementById('prompt')
           submit.textContent = 'Submit Answer' + (models.length >= 2 ? 's' : '')
@@ -417,19 +433,23 @@
       }
 
       function redirectToReveal (e) {
+        log('redirecting to reveal hash')
         e.preventDefault()
         window.location.hash += 'r'
       }
 
       function redirectToTake (e) {
+        log('redirecting to take quiz hash')
         e.preventDefault()
         window.location.hash = window.location.hash.replace('r', '')
       }
 
       function answerCards () {
+        log('revealing card answers')
         for (const model of models) {
           answerCard(model)
         }
+        log('revealed card answers')
       }
 
       function answerCard (model) {
@@ -447,6 +467,7 @@
       }
 
       function markCards (scoring) {
+        log('marking cards')
         let points = 0
         for (const model of models) {
           points += markCard(model, scoring)
@@ -457,7 +478,9 @@
           showAward(points)
         }
         renderKaTeX()
+        log('scrolling to top smoothly')
         window.scroll({ top: 0, behavior: 'smooth' })
+        log('marked cards')
       }
 
       function markCard (model, scoring) {
@@ -544,11 +567,14 @@
       }
 
       function setupScreen (name) {
+        log('setting up screen', name)
         const div = document.createElement('div')
         div.className = 'screen'
         div.innerHTML = SCREENS[name]
         document.querySelector('main').replaceChildren(div)
+        log('scrolling to top immediately')
         window.scroll({ top: 0 })
+        log('set up screen', name)
       }
 
       function range (m, n) {
@@ -647,6 +673,13 @@
             return ['\\htmlId', '\\href'].includes(context.command)
           }
         })
+      }
+
+      function log () {
+        if (LOGGING) {
+          const args = Array.prototype.slice.call(arguments)
+          console.log('[log] ' + args.join(' '))
+        }
       }
 
       window.addEventListener('load', init)
