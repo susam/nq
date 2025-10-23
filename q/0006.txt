@@ -35,11 +35,11 @@ doing so would expose its king to check.
 
 When two attacks are made with one move, it is called a <em>double
 attack</em>.  If both attacks are made by the same piece, it is called
-a <em>fork</em>.  In chess, a fork occurs when one piece attacks two
-or more of the opponent's pieces at the same time.
+a <em>fork</em>.  In other words, a fork occurs when one piece attacks
+two or more of the opponent's pieces at the same time.
 
 A <em>royal fork</em> is a special type of fork in which a single
-piece attacks the opponent's king and queen at the same time. Since
+piece attacks the opponent's king and queen at the same time.  Since
 the opponent must respond to the check against the king, the queen is
 usually captured on the following move, making this the highest
 material-gaining fork possible.
@@ -49,7 +49,10 @@ simply called a <em>queen fork</em>, not a royal fork.
 
 The opening tactic where the queen and bishop coordinate to deliver
 checkmate on f7 by White or on f2 by Black is called the Scholar's
-Mate.
+Mate.  Despite being a quick and threatening attack, it is easy to
+defend against by developing minor pieces and defending the vulnerable
+f7 or f2 square early.  For this reason, it is rarely seen in serious
+play.
 
 Checkmating with two queens is an elementary endgame pattern that
 relies on restricting the opposing king's mobility and coordinating
