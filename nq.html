@@ -418,19 +418,26 @@
           card.append(label)
         }
 
-        const meta = document.createElement('div')
-        const info = document.createElement('div')
-        const text = 'QID #' + model.qid + ' | ' + formatDate(model.date) + ' | '
+        card.append(setupMeta(model))
+        return card
+      }
+
+      function setupMeta (model) {
         const score = document.createElement('span')
-        meta.className = 'meta'
-        meta.id = 'm' + model.qid
-        info.className = 'info'
-        info.append(text, score)
         score.id = 's' + model.qid
         score.textContent = 'Penalty: ' + model.penalty.toFixed(2)
+
+        const text = 'Q#' + model.qid + ' | ' + formatDate(model.date) + ' | '
+        const info = document.createElement('div')
+        info.className = 'info'
+        info.append(text, score)
+
+        const meta = document.createElement('div')
+        meta.className = 'meta'
+        meta.id = 'm' + model.qid
+
         meta.append(info)
-        card.append(meta)
-        return card
+        return meta
       }
 
       function handleRadio () {
