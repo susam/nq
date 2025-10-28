@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {
-        color: #333;
         font-family: georgia, serif;
         font-size: large;
         line-height: 1.5;
@@ -15,7 +14,17 @@
         overflow-wrap: break-word;
         padding: 0 1em;
       }
-      h1, h2 {
+      body, dialog {
+        color: #333;
+      }
+      dialog {
+        max-width: 30em;
+        text-align: center;
+      }
+      dialog div:nth-of-type(2) {
+        text-align: left;
+      }
+      h1, h2, h3 {
         margin: 1em 0 0.5em 0;
         text-align: center;
       }
@@ -62,11 +71,20 @@
       blockquote, pre {
         padding: 0.5em;
       }
-      blockquote *:first-child {
-        margin-top: 0;
+      dialog button {
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: large;
+        margin-right: 0.5em;
+        padding: 0.25em 1em;
+        min-width: 10em;
       }
-      blockquote *:last-child {
-        margin-bottom: 0;
+      dialog button:last-child {
+        margin-right: 0;
+      }
+      dialog::backdrop {
+        background: #000;
+        opacity: 0.7;
       }
       footer {
         text-align: center;
@@ -116,10 +134,18 @@
       .award p strong {
         white-space: pre;
       }
-      .card > :first-child, .explanation > :first-child, .award > :first-child {
+      blockquote > :first-child,
+      dialog > :first-child,
+      .card > :first-child,
+      .explanation > :first-child,
+      .award > :first-child {
         margin-top: 0;
       }
-      .card > :last-child, .explanation > :last-child, .award > :last-child {
+      blockquote > :last-child,
+      dialog > :last-child,
+      .card > :last-child,
+      .explanation > :last-child,
+      .award > :last-child {
         margin-bottom: 0;
       }
       .skipped.card {
@@ -158,6 +184,7 @@
         text-transform: uppercase;
       }
       .info {
+        cursor: pointer;
         flex: 1;
         font-size: small;
         text-align: right;
@@ -174,7 +201,7 @@
         display: none;
       }
       @media (prefers-color-scheme: dark) {
-        body {
+        body, dialog {
           background: #111;
           color: #ccc;
         }
@@ -332,11 +359,8 @@
 
       function setupQuiz (models, revealing, quizNum) {
         log('setting up quiz')
-        const main = document.querySelector('main')
-        const h1 = document.createElement('h1')
-        const form = document.createElement('form')
-        const submit = document.createElement('button')
-        const p = document.createElement('p')
+
+        // Set up title.
         let titleSuffix = ''
         if (quizNum !== null) {
           titleSuffix = ' #' + quizNum
@@ -345,29 +369,46 @@
         } else {
           titleSuffix = ' - Assorted'
         }
-        document.title = docTitle + titleSuffix
+        const h1 = document.createElement('h1')
         h1.textContent = 'Nerd Quiz' + titleSuffix
+        document.title = docTitle + titleSuffix
+
+        // Set up submit button and prompt.
+        const submit = document.createElement('button')
+        const prompt = document.createElement('p')
+        submit.id = 'submit'
+        prompt.id = 'prompt'
+        if (revealing) {
+          submit.textContent = 'Try Quiz'
+          submit.addEventListener('click', redirectToTake)
+          prompt.style.display = 'none'
+        } else {
+          submit.textContent = 'Reveal Answer' + (models.length >= 2 ? 's' : '')
+          submit.addEventListener('click', redirectToReveal)
+          prompt.textContent = 'Select an answer to begin the quiz.'
+          prompt.style.fontStyle = 'italic'
+          prompt.style.textAlign = 'center'
+        }
+
+        // Set up the quiz cards and the form.
+        const form = document.createElement('form')
         form.id = 'form'
         for (let i = 0; i < models.length; i++) {
           form.append(setupCard(models[i]))
         }
-        submit.id = 'submit'
-        p.id = 'prompt'
-        if (revealing) {
-          submit.textContent = 'Try Quiz'
-          submit.addEventListener('click', redirectToTake)
-          p.style.display = 'none'
-        } else {
-          submit.textContent = 'Reveal Answer' + (models.length >= 2 ? 's' : '')
-          submit.addEventListener('click', redirectToReveal)
-          p.textContent = 'Select an answer to begin the quiz.'
-          p.style.fontStyle = 'italic'
-          p.style.textAlign = 'center'
-        }
-        form.append(submit, p)
-        main.replaceChildren(h1, form)
+        form.append(submit, prompt)
+
+        // Add a blank dialog to the document to be triggered later.
+        const dialog = document.createElement('dialog')
+        dialog.id = 'dialog'
+
+        // Set up the main section and scroll to top.
+        const main = document.querySelector('main')
+        main.replaceChildren(h1, form, dialog)
         log('scrolling to top immediately')
         window.scroll({ top: 0 })
+
+        // Reveal cards if requested.
         if (revealing) {
           answerCards()
           markCards(false)
@@ -431,13 +472,59 @@
         const info = document.createElement('div')
         info.className = 'info'
         info.append(text, score)
+        info.addEventListener('click', function () {
+          showInfoDialog(model)
+        })
 
         const meta = document.createElement('div')
         meta.className = 'meta'
         meta.id = 'm' + model.qid
-
         meta.append(info)
         return meta
+      }
+
+      function showInfoDialog (model) {
+        // Set up header.
+        const h3 = document.createElement('h3')
+        const by = document.createElement('div')
+        h3.textContent = 'Question #' + model.qid
+        by.textContent = 'By ' + model.authors.join(', ') + ' on ' + formatDate(model.date)
+
+        // Set up text content.
+        const div = document.createElement('div')
+        let html = '<p>This question has the following tag'
+        html += (model.tags.length >= 2 ? 's' : '') + ': '
+        html += model.tags.join(', ') + '.  '
+        html += 'You will score 1.0 for a correct answer and lose '
+        html += model.penalty.toFixed(2) + ' for an incorrect one.'
+        div.innerHTML = html
+
+        // Set up buttons.
+        const form = document.createElement('form')
+        form.method = 'dialog'
+        if (models.length > 1) {
+          const visit = document.createElement('button')
+          visit.value = 'visit'
+          visit.textContent = 'Visit Question'
+          form.append(visit)
+        }
+        const close = document.createElement('button')
+        close.value = 'close'
+        close.textContent = 'Close'
+        form.append(close)
+
+        // Set up and show dialog.
+        const dialog = document.getElementById('dialog')
+        dialog.returnValue = null
+        dialog.addEventListener('close', function () {
+          log('info dialog return value:', dialog.returnValue)
+          if (dialog.returnValue === 'visit') {
+            window.location.hash = '#q' + model.qid
+          }
+        })
+        dialog.replaceChildren(h3, by, div, form)
+        dialog.showModal()
+        close.focus()
       }
 
       function handleRadio () {

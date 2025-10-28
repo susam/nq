@@ -12,6 +12,8 @@ Changelog
   the title.
 - Show 'Correct' vs 'Incorrect' result explicitly while marking
   answers.
+- Clicking the question card footer now opens a dialog displaying
+  details about the question.
 
 ### Changed
 
