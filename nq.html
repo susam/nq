@@ -353,7 +353,8 @@
           option.correct = i === answer
           model.options.push(option)
         }
-        model.penalty = -1 / (options.length - 1)
+        model.points = 1
+        model.penalty = 1 / (options.length - 1)
         return model
       }
 
@@ -466,7 +467,7 @@
       function setupMeta (model) {
         const score = document.createElement('span')
         score.id = 's' + model.qid
-        score.textContent = 'Penalty: ' + model.penalty.toFixed(2)
+        score.textContent = 'Penalty: ' + (-model.penalty).toFixed(2)
 
         const text = 'Q#' + model.qid + ' | ' + formatDate(model.date) + ' | '
         const info = document.createElement('div')
@@ -495,8 +496,8 @@
         let html = '<p>This question has the following tag'
         html += (model.tags.length >= 2 ? 's' : '') + ': '
         html += model.tags.join(', ') + '.  '
-        html += 'You will score 1.0 for a correct answer and lose '
-        html += model.penalty.toFixed(2) + ' for an incorrect one.'
+        html += 'You score ' + model.points + ' for a correct answer '
+        html += 'and lose ' + model.penalty.toFixed(2) + ' for an incorrect one.'
         div.innerHTML = html
 
         // Set up buttons.
@@ -610,13 +611,13 @@
               result = 'Correct'
               card.className = 'correct card'
               label.className = 'correct'
-              points = 1
+              points = model.points
               label.append(TICK_MARK)
             } else {
               result = 'Incorrect'
               card.className = 'incorrect card'
               label.className = 'incorrect'
-              points = model.penalty
+              points = -model.penalty
               label.append(CROSS_MARK)
             }
           } else if (option.correct) {
