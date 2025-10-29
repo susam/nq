@@ -504,9 +504,6 @@
         html += formatTags(model.tags) + '.  '
         html += 'You score ' + model.points + ' for a correct answer and lose '
         html += (-model.penalty).toFixed(2) + ' for an incorrect one.</p>'
-        html += '<p>You can load this question on its own page by clicking the '
-        html += '\'' + visitLabel + '\' button below.</p>'
-        div.innerHTML = html
 
         // Set up buttons.
         const form = document.createElement('form')
@@ -516,7 +513,10 @@
           visit.value = 'visit'
           visit.textContent = visitLabel
           form.append(visit)
+          html += '<p>You can load this question on its own page by clicking the '
+          html += '\'' + visitLabel + '\' button below.</p>'
         }
+        div.innerHTML = html
         const close = document.createElement('button')
         close.value = 'close'
         close.textContent = 'Close'
