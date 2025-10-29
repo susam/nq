@@ -354,7 +354,7 @@
           model.options.push(option)
         }
         model.points = 1
-        model.penalty = 1 / (options.length - 1)
+        model.penalty = -1 / (options.length - 1)
         return model
       }
 
@@ -384,7 +384,7 @@
           submit.addEventListener('click', redirectToTake)
           prompt.style.display = 'none'
         } else {
-          submit.textContent = 'Reveal Answer' + (models.length >= 2 ? 's' : '')
+          submit.textContent = 'Reveal ' + plural(models, 'Answer', 'Answers')
           submit.addEventListener('click', redirectToReveal)
           prompt.textContent = 'Select an answer to begin the quiz.'
           prompt.style.fontStyle = 'italic'
@@ -467,7 +467,7 @@
       function setupMeta (model) {
         const score = document.createElement('span')
         score.id = 's' + model.qid
-        score.textContent = 'Penalty: ' + (-model.penalty).toFixed(2)
+        score.textContent = 'Penalty: ' + model.penalty.toFixed(2)
 
         const text = 'Q#' + model.qid + ' | ' + formatDate(model.date) + ' | '
         const info = document.createElement('div')
@@ -489,15 +489,15 @@
         const h3 = document.createElement('h3')
         const by = document.createElement('div')
         h3.textContent = 'Question #' + model.qid
-        by.textContent = 'By ' + model.authors.join(', ') + ' on ' + formatDate(model.date)
+        by.innerHTML = 'By ' + formatAuthors(model.authors) + ' on ' + formatDate(model.date)
 
         // Set up text content.
         const div = document.createElement('div')
-        let html = '<p>This question has the following tag'
-        html += (model.tags.length >= 2 ? 's' : '') + ': '
-        html += model.tags.join(', ') + '.  '
-        html += 'You score ' + model.points + ' for a correct answer '
-        html += 'and lose ' + model.penalty.toFixed(2) + ' for an incorrect one.'
+        let html = '<p>This question has the following '
+        html += plural(model.tags, 'tag', 'tags') + ': '
+        html += formatTags(model.tags) + '.  '
+        html += 'You score ' + model.points + ' for a correct answer and lose '
+        html += (-model.penalty).toFixed(2) + ' for an incorrect one.</p>'
         div.innerHTML = html
 
         // Set up buttons.
@@ -533,7 +533,7 @@
           log('switching to answering mode')
           const submit = document.getElementById('submit')
           const prompt = document.getElementById('prompt')
-          submit.textContent = 'Submit Answer' + (models.length >= 2 ? 's' : '')
+          submit.textContent = 'Submit ' + plural(models, 'Answer', 'Answers')
           submit.removeEventListener('click', redirectToReveal)
           submit.addEventListener('click', markAnswers)
           prompt.style.display = 'none'
@@ -617,7 +617,7 @@
               result = 'Incorrect'
               card.className = 'incorrect card'
               label.className = 'incorrect'
-              points = -model.penalty
+              points = model.penalty
               label.append(CROSS_MARK)
             }
           } else if (option.correct) {
@@ -739,6 +739,14 @@
         return items
       }
 
+      function formatAuthors (authors) {
+        return joinAnd(unique(authors).map(x => '<strong>' + x + '</strong>'))
+      }
+
+      function formatTags (tags) {
+        return joinAnd(unique(tags).map(x => '<em>' + x + '</em>'))
+      }
+
       function formatDate (dateStr) {
         const date = new Date(dateStr)
         const day = String(date.getDate()).padStart(2, '0')
@@ -767,6 +775,21 @@
 
       function formatTotalScore (n) {
         return (Math.round(n * 100) / 100).toString()
+      }
+
+      function joinAnd (items) {
+        if (items.length <= 1) {
+          return items.join()
+        }
+        return items.slice(0, -1).join(', ') + ' and ' + items.slice(-1)
+      }
+
+      function unique (items) {
+        return [...new Set(items)]
+      }
+
+      function plural (items, singular, plural) {
+        return items.length === 1 ? singular : plural
       }
 
       function renderKaTeX () {
