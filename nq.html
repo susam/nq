@@ -28,6 +28,9 @@
         margin: 1em 0 0.5em 0;
         text-align: center;
       }
+      h1 + div {
+        text-align: center;
+      }
       a:link { color: #00e }
       a:visited { color: #518 }
       a:focus, a:hover { color: #03f }
@@ -274,6 +277,7 @@
     <script>
       const LOGGING = true
       const SCREENS = {}
+      const CARDS_PER_SET = 5
       let models
       let answering
       let docTitle
@@ -293,7 +297,7 @@
 
       function setupPage () {
         log('setting up page')
-        const maxSet = Math.floor(CARDS.length / 5)
+        const maxSet = Math.floor(CARDS.length / CARDS_PER_SET)
         let hash = window.location.hash.slice(1)
         let revealing = false
 
@@ -303,9 +307,7 @@
         }
 
         if (/^q[\d,]+$/.test(hash)) {
-          const qids = Array.from(
-            new Set(hash.slice(1).split(',').map(Number).filter(Boolean))
-          )
+          const qids = unique(hash.slice(1).split(',').map(Number).filter(Boolean))
           for (const qid of qids) {
             if (qid < 1 || qid > CARDS.length) {
               setupError('Question #' + qid + ' does not exist.')
@@ -320,7 +322,9 @@
             setupError('Quiz set #' + n + ' does not exist.')
             return
           }
-          models = createModels(range(5 * (n - 1) + 1, 5 * n + 1))
+          models = createModels(
+            range(CARDS_PER_SET * (n - 1) + 1, CARDS_PER_SET * n + 1)
+          )
           setupQuiz(models, revealing, n)
         } else if (hash in SCREENS) {
           setupScreen(hash)
@@ -364,15 +368,26 @@
         // Set up title.
         let titleSuffix = ''
         if (quizNum !== null) {
+          // Quiz set.
           titleSuffix = ' #' + quizNum
         } else if (models.length === 1) {
+          // Single question.
           titleSuffix = ' - Question #' + models[0].qid
         } else {
+          // Assorted questions.
           titleSuffix = ' - Assorted'
         }
         const h1 = document.createElement('h1')
         h1.textContent = 'Nerd Quiz' + titleSuffix
         document.title = docTitle + titleSuffix
+
+        // Set up byline.
+        const by = document.createElement('div')
+        if (quizNum !== null || models.length === 1) {
+          const authors = formatAuthors(models.flatMap(model => model.authors))
+          const date = formatDate(models.map(model => model.date).sort().at(-1))
+          by.innerHTML = 'By ' + authors + ' on ' + date
+        }
 
         // Set up submit button and prompt.
         const submit = document.createElement('button')
@@ -405,7 +420,7 @@
 
         // Set up the main section and scroll to top.
         const main = document.querySelector('main')
-        main.replaceChildren(h1, form, dialog)
+        main.replaceChildren(h1, by, form, dialog)
         log('scrolling to top immediately')
         window.scroll({ top: 0 })
 
@@ -788,7 +803,7 @@
       }
 
       function unique (items) {
-        return [...new Set(items)]
+        return Array.from(new Set(items))
       }
 
       function plural (items, singular, plural) {
