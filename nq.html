@@ -18,7 +18,7 @@
         color: #333;
       }
       dialog {
-        max-width: 30em;
+        max-width: 40em;
         text-align: center;
       }
       dialog div:nth-of-type(2) {
@@ -493,11 +493,14 @@
 
         // Set up text content.
         const div = document.createElement('div')
+        const visitLabel = 'Visit Question'
         let html = '<p>This question has the following '
         html += plural(model.tags, 'tag', 'tags') + ': '
         html += formatTags(model.tags) + '.  '
         html += 'You score ' + model.points + ' for a correct answer and lose '
         html += (-model.penalty).toFixed(2) + ' for an incorrect one.</p>'
+        html += '<p>You can load this question on its own page by clicking the '
+        html += '\'' + visitLabel + '\' button below.</p>'
         div.innerHTML = html
 
         // Set up buttons.
@@ -506,7 +509,7 @@
         if (models.length > 1) {
           const visit = document.createElement('button')
           visit.value = 'visit'
-          visit.textContent = 'Visit Question'
+          visit.textContent = visitLabel
           form.append(visit)
         }
         const close = document.createElement('button')
