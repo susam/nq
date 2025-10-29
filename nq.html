@@ -28,9 +28,6 @@
         margin: 1em 0 0.5em 0;
         text-align: center;
       }
-      h1 + div {
-        text-align: center;
-      }
       a:link { color: #00e }
       a:visited { color: #518 }
       a:focus, a:hover { color: #03f }
@@ -382,14 +379,6 @@
         h1.textContent = 'Nerd Quiz' + titleSuffix
         document.title = docTitle + titleSuffix
 
-        // Set up byline.
-        const by = document.createElement('div')
-        if (quizNum !== null || models.length === 1) {
-          const authors = formatAuthors(models.flatMap(model => model.authors))
-          const date = formatDate(models.map(model => model.date).sort().at(-1))
-          by.innerHTML = 'By ' + authors + ' on ' + date
-        }
-
         // Set up submit button and prompt.
         const submit = document.createElement('button')
         const prompt = document.createElement('p')
@@ -421,7 +410,7 @@
 
         // Set up the main section and scroll to top.
         const main = document.querySelector('main')
-        main.replaceChildren(h1, by, form, dialog)
+        main.replaceChildren(h1, form, dialog)
         log('scrolling to top immediately')
         window.scroll({ top: 0 })
 
