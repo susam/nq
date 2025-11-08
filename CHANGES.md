@@ -14,6 +14,13 @@ Changelog
   answers.
 - Clicking the question card footer now opens a dialog displaying
   details about the question.
+- Add 'Reveal Answers' link when a quiz loads.  This replaces the
+  'Submit Answers' button that appeared earlier after loading a quiz.
+  As soon as one question is answered, the 'Submit Answers' button
+  appears while the 'Reveal Answers' link disappears.
+- Add a text prompt to remind the user to select at least one answer
+  to begin the quiz.  As soon as one question is answered, this prompt
+  is hidden.
 
 ### Changed
 
@@ -25,9 +32,6 @@ Changelog
 - Prevent wrapping of multi-word nerd levels like 'Pro Nerd' to ensure
   the full name stays on one line.
 - Use a faded dark colour scheme for disabled button in dark mode.
-- Change the initial submit button from 'Submit Answers' to 'Reveal
-  Answers'.  As soon as one question is answered, the submit button
-  changes to 'Submit Answers'.
 - URL `#0` now shows an error instead of loading the latest quiz.
 
 ### Fixed

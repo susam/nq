@@ -371,30 +371,37 @@
         h1.textContent = 'Nerd Quiz' + titleSuffix
         document.title = docTitle + titleSuffix
 
-        // Set up submit button and prompt.
-        const submit = document.createElement('button')
-        const prompt = document.createElement('p')
-        submit.id = 'submit'
-        prompt.id = 'prompt'
-        if (revealing) {
-          submit.textContent = 'Try Quiz'
-          submit.addEventListener('click', redirectToTake)
-          prompt.style.display = 'none'
-        } else {
-          submit.textContent = 'Reveal ' + plural(models, 'Answer', 'Answers')
-          submit.addEventListener('click', redirectToReveal)
-          prompt.textContent = 'Select an answer to begin the quiz.'
-          prompt.style.fontStyle = 'italic'
-          prompt.style.textAlign = 'center'
-        }
-
         // Set up the quiz cards and the form.
         const form = document.createElement('form')
         form.id = 'form'
         for (let i = 0; i < models.length; i++) {
           form.append(setupCard(models[i]))
         }
-        form.append(submit, prompt)
+
+        // Set up reveal/try link, prompt and submit button.
+        const prompt = document.createElement('p')
+        const reveal = document.createElement('p')
+        const anchor = document.createElement('a')
+        const submit = document.createElement('button')
+        prompt.id = 'prompt'
+        reveal.id = 'reveal'
+        submit.id = 'submit'
+        prompt.style.textAlign = 'center'
+        reveal.style.textAlign = 'center'
+        submit.style.display = 'none'
+        reveal.append(anchor)
+        if (revealing) {
+          anchor.href = window.location.hash.replace('r', '')
+          anchor.textContent = 'Try Quiz'
+          prompt.style.display = 'none'
+        } else {
+          anchor.href = window.location.hash + 'r'
+          anchor.textContent = 'Reveal ' + plural(models, 'Answer', 'Answers')
+          prompt.textContent = 'Select an answer to begin the quiz.'
+          prompt.style.fontStyle = 'italic'
+          prompt.style.textAlign = 'center'
+        }
+        form.append(prompt, reveal, submit)
 
         // Add a blank dialog to the document to be triggered later.
         const dialog = document.createElement('dialog')
@@ -497,6 +504,9 @@
         html += 'You score ' + model.points + ' for a correct answer and lose '
         html += (-model.penalty).toFixed(2) + ' for an incorrect one.</p>'
         div.innerHTML = html
+
+        // Initialise dialog box.
+        const dialog = document.getElementById('dialog')
         dialog.replaceChildren(h3, by, div)
 
         // Set up buttons.
@@ -523,26 +533,16 @@
       function handleRadio () {
         if (!answering) {
           log('switching to answering mode')
-          const submit = document.getElementById('submit')
           const prompt = document.getElementById('prompt')
+          const reveal = document.getElementById('reveal')
+          const submit = document.getElementById('submit')
           submit.textContent = 'Submit ' + plural(models, 'Answer', 'Answers')
-          submit.removeEventListener('click', redirectToReveal)
           submit.addEventListener('click', markAnswers)
           prompt.style.display = 'none'
+          reveal.style.display = 'none'
+          submit.style.display = 'block'
           answering = true
         }
-      }
-
-      function redirectToReveal (e) {
-        log('redirecting to reveal hash')
-        e.preventDefault()
-        window.location.hash += 'r'
-      }
-
-      function redirectToTake (e) {
-        log('redirecting to take quiz hash')
-        e.preventDefault()
-        window.location.hash = window.location.hash.replace('r', '')
       }
 
       function answerCards () {
