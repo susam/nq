@@ -24,6 +24,9 @@
       dialog div:nth-of-type(2) {
         text-align: left;
       }
+      dialog button {
+        min-width: 10em;
+      }
       h1, h2, h3 {
         margin: 1em 0 0.5em 0;
         text-align: center;
@@ -70,17 +73,6 @@
       }
       blockquote, pre {
         padding: 0.5em;
-      }
-      dialog button {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: large;
-        margin-right: 0.5em;
-        padding: 0.25em 1em;
-        min-width: 10em;
-      }
-      dialog button:last-child {
-        margin-right: 0;
       }
       dialog::backdrop {
         background: #000;
@@ -499,40 +491,31 @@
 
         // Set up text content.
         const div = document.createElement('div')
-        const visitLabel = 'Visit Question'
         let html = '<p>This question has the following '
         html += plural(model.tags, 'tag', 'tags') + ': '
         html += formatTags(model.tags) + '.  '
         html += 'You score ' + model.points + ' for a correct answer and lose '
         html += (-model.penalty).toFixed(2) + ' for an incorrect one.</p>'
+        div.innerHTML = html
+        dialog.replaceChildren(h3, by, div)
 
         // Set up buttons.
         const form = document.createElement('form')
         form.method = 'dialog'
         if (models.length > 1) {
-          const visit = document.createElement('button')
-          visit.value = 'visit'
-          visit.textContent = visitLabel
-          form.append(visit)
-          html += '<p>You can load this question on its own page by clicking the '
-          html += '\'' + visitLabel + '\' button below.</p>'
+          const div = document.createElement('div')
+          const visit = document.createElement('a')
+          visit.href = '#q' + model.qid
+          visit.textContent = 'Visit Question'
+          div.append(visit)
+          dialog.append(div)
         }
-        div.innerHTML = html
+
         const close = document.createElement('button')
         close.value = 'close'
         close.textContent = 'Close'
         form.append(close)
-
-        // Set up and show dialog.
-        const dialog = document.getElementById('dialog')
-        dialog.returnValue = null
-        dialog.addEventListener('close', function () {
-          log('info dialog return value:', dialog.returnValue)
-          if (dialog.returnValue === 'visit') {
-            window.location.hash = '#q' + model.qid
-          }
-        })
-        dialog.replaceChildren(h3, by, div, form)
+        dialog.append(form)
         dialog.showModal()
         close.focus()
       }
