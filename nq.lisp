@@ -77,7 +77,7 @@
 (defun write-file (filename text)
   "Write text to file and close the file."
   (ensure-directories-exist filename)
-  (with-open-file (f filename :direction :output :if-exists :overwrite)
+  (with-open-file (f filename :direction :output :if-exists :supersede)
     (write-sequence text f)))
 
 
