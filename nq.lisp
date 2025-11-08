@@ -3,9 +3,9 @@
 
 ;;;; Copyright (c) 2025 Susam Pal
 ;;;;
-;;;; You can use, copy, modify, merge, publish, distribute,
-;;;; sublicense, and/or sell copies of it, under the terms of the MIT
-;;;; License.  See LICENSE.md for complete details.
+;;;; You can use, copy, modify, merge, publish, distribute, sublicence
+;;;; and/or sell copies of it, under the terms of the MIT Licence.
+;;;; See LICENSE.md for complete details.
 ;;;;
 ;;;; This software is provided "AS IS", WITHOUT WARRANTY OF ANY KIND,
 ;;;; express or implied.  See LICENSE.md for complete details.

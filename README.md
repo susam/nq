@@ -23,15 +23,15 @@ links:
 - https://susam.codeberg.page/nq.html
 
 
-License
+Licence
 -------
 
 This is free and open source software.  You can use, copy, modify,
-merge, publish, distribute, sublicense, and/or sell copies of it,
-under the terms of the MIT License.  See [LICENSE.md][L] for details.
+merge, publish, distribute, sublicence and/or sell copies of it, under
+the terms of the MIT Licence.  See [LICENSE.md][L] for details.
 
 This software is provided "AS IS", WITHOUT WARRANTY OF ANY KIND,
-express or implied. See [LICENSE.md][L] for details.
+express or implied.  See [LICENSE.md][L] for details.
 
 [L]: LICENSE.md
 

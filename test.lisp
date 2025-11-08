@@ -3,12 +3,12 @@
 
 ;;;; Copyright (c) 2025 Susam Pal
 ;;;;
-;;;; You can use, copy, modify, merge, publish, distribute,
-;;;; sublicense, and/or sell copies of it, under the terms of the MIT
-;;;; License. See COPYRIGHT.md for complete details.
+;;;; You can use, copy, modify, merge, publish, distribute, sublicence
+;;;; and/or sell copies of it, under the terms of the MIT Licence.
+;;;; See LICENSE.md for complete details.
 ;;;;
 ;;;; This software is provided "AS IS", WITHOUT WARRANTY OF ANY KIND,
-;;;; express or implied. See COPYRIGHT.md for complete details.
+;;;; express or implied.  See LICENSE.md for complete details.
 
 (require "uiop")
 
@@ -46,7 +46,7 @@
            (format t "~&  ~a: error: ~a~%" test-name c))))))
 
 (defmacro test-case! (name &body body)
-  "Execute a test case and error out on failure. Useful for debugging."
+  "Execute a test case and error out on failure.  Useful for debugging."
   `(progn
      (remove-directory #p"test-tmp/")
      (ensure-directories-exist #p"test-tmp/")

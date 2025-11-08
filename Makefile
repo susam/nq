@@ -1,13 +1,9 @@
-nq:
-	sbcl --script nq.lisp
-
-test:
-	sbcl --noinform --eval "(defvar *quit* t)" --script test.lisp
+APP = nq.html
 
 checks: tidy lint
 
 tidy:
-	tidy -q -e --warn-proprietary-attributes no nq.html
+	tidy -q -e --warn-proprietary-attributes no $(APP)
 
 lint:
 	npx standard --plugin html *.html
@@ -15,6 +11,12 @@ lint:
 deps:
 	npm install --no-save standard eslint-plugin-html
 	if command -v brew; then brew install tidy-html5; fi
+
+cp:
+	cp $(APP) ~/git/susam.net/content/tree
+
+pub: cp
+	cd ~/git/susam.net/ && make copub
 
 katex:
 	mkdir -p js/
@@ -27,7 +29,8 @@ katex:
 	fi
 	rm -f katex.tgz
 
-cu:
-	cp -v nq.html ~/git/susam.net/content/tree/
-	@echo "Creating subshell to review change and publish"
-	cd ~/git/susam.net/ && git checkout cu && git status && git add -p && git commit --amend --reset-author && make pub
+nq:
+	sbcl --script nq.lisp
+
+test:
+	sbcl --noinform --eval "(defvar *quit* t)" --script test.lisp

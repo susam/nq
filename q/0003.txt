@@ -50,9 +50,9 @@ exercises targeting the trapezius include shrugs and upright rows.
 <em>Lateral stabilisation</em> is a generic term with different
 meanings depending on the field.  In human anatomy, it can refer to
 the body's ability to maintain balance and control of side-to-side
-movements. In construction and engineering, it can refer to the
+movements.  In construction and engineering, it can refer to the
 capacity of a structure to resist horizontal forces such as wind or
-seismic activity. This term is not directly related to the lat
+seismic activity.  This term is not directly related to the lat
 pull-down exercise.
 
 <em>Latent strength</em> is a pure distractor in the quiz options.  It
