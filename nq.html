@@ -413,6 +413,7 @@
         main.replaceChildren(h1, form, dialog)
         log('scrolling to top immediately')
         window.scroll({ top: 0 })
+        renderKaTeX()
 
         // Reveal cards if requested.
         if (revealing) {
@@ -801,6 +802,7 @@
       }
 
       function renderKaTeX () {
+        log('rendering katex')
         window.renderMathInElement(document.body, {
           delimiters: [
             { left: '\\(', right: '\\)', display: false },
@@ -953,6 +955,26 @@
             'It is a tactic in which a piece is attacked but cannot move because\ndoing so would expose its king to check.'
           ],
           explanation: 'When two attacks are made with one move, it is called a <em>double\nattack</em>.  If both attacks are made by the same piece, it is called\na <em>fork</em>.  In other words, a fork occurs when one piece attacks\ntwo or more of the opponent\'s pieces at the same time.\n\nA <em>royal fork</em> is a special type of fork in which a single\npiece attacks the opponent\'s king and queen at the same time.  Since\nthe opponent must respond to the check against the king, the queen is\nusually captured on the following move, making this the highest\nmaterial-gaining fork possible.\n\nA fork involving the queen attacking two of the opponent\'s pieces is\nsimply called a <em>queen fork</em>, not a royal fork.\n\nThe opening tactic where the queen and bishop coordinate to deliver\ncheckmate on f7 by White or on f2 by Black is called the Scholar\'s\nMate.  Despite being a quick and threatening attack, it is easy to\ndefend against by developing minor pieces and defending the vulnerable\nf7 or f2 square early.  For this reason, it is rarely seen in serious\nplay.\n\nCheckmating with two queens is an elementary endgame pattern that\nrelies on restricting the opposing king\'s mobility and coordinating\nboth queens to force checkmate.  This pattern is unrelated to fork.\n\nIf a defending piece cannot move because doing so would expose a more\nvaluable piece behind it to attack, the situation is called a\n<em>pin</em>.  If the more valuable piece is the king, the pin is\ncalled an <em>absolute pin</em>.'
+        },
+        {
+          date: '2025-11-07',
+          title: 'Number of Simple, Undirected Graphs',
+          tags: [
+            'Mathematics',
+            'Graph Theory'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'How many simple, undirected graphs can be formed with \\( n \\)\nvertices?',
+          options: [
+            '\\( 2^{n(n - 1)/2} \\)',
+            '\\( 2^{n(n - 1)} \\)',
+            '\\( 2^{n^2} \\)',
+            '\\( n!   \\)',
+            '\\( (n!)!  \\)'
+          ],
+          explanation: 'A <em>simple graph</em> is one in which no vertex is connected to\nitself and no two vertices are joined by more than one edge.  In other\nwords, it has no loops or multiple edges.\n\nAn <em>undirected graph</em> is one in which edges have no direction.\nAn edge is represented simply as an unordered pair of vertices.\n\nFor a set of \\( n \\) vertices, each possible pair of distinct vertices\nmay either be connected by an edge or left unconnected.  The total\nnumber of such pairs is given by the binomial coefficient\n\\[\n  \\binom{n}{2} = \\frac{n(n - 1)}{2}.\n\\]\nEach pair of vertices gives two possibilites: an edge present between\nthem or no edge at all.  Therefore the total number of distinct\nsimple, undirected graphs that can be formed with \\( n \\) vertices is:\n\\[\n  2^{n(n - 1)/2}.\n\\]\nThis number represents all possible edge configurations in simple,\nundirected graphs.  Such graphs can be used to model symmetric\nrelationships such as mutual friendships, research collaboration\nnetworks and molecular structures.'
         }
       ]
     </script>

@@ -1,0 +1,55 @@
+2025-11-07
+Number of Simple, Undirected Graphs
+Mathematics, Graph Theory
+Susam Pal
+
+---
+
+How many simple, undirected graphs can be formed with \( n \)
+vertices?
+
+---
+
+\( 2^{n(n - 1)/2} \)
+
+---
+
+\( 2^{n(n - 1)} \)
+
+---
+
+\( 2^{n^2} \)
+
+---
+
+\( n!   \)
+
+---
+
+\( (n!)!  \)
+
+---
+
+A <em>simple graph</em> is one in which no vertex is connected to
+itself and no two vertices are joined by more than one edge.  In other
+words, it has no loops or multiple edges.
+
+An <em>undirected graph</em> is one in which edges have no direction.
+An edge is represented simply as an unordered pair of vertices.
+
+For a set of \( n \) vertices, each possible pair of distinct vertices
+may either be connected by an edge or left unconnected.  The total
+number of such pairs is given by the binomial coefficient
+\[
+  \binom{n}{2} = \frac{n(n - 1)}{2}.
+\]
+Each pair of vertices gives two possibilites: an edge present between
+them or no edge at all.  Therefore the total number of distinct
+simple, undirected graphs that can be formed with \( n \) vertices is:
+\[
+  2^{n(n - 1)/2}.
+\]
+This number represents all possible edge configurations in simple,
+undirected graphs.  Such graphs can be used to model symmetric
+relationships such as mutual friendships, research collaboration
+networks and molecular structures.

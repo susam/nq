@@ -35,6 +35,7 @@ Changelog
 - Hide 'About' page by default to prevent initial flash of text.
 - Do not show duplicate questions for custom quizzes like `#q1,1,2,2'`.
 - Display error when a non-existent QID is used in custom quiz URL.
+- Render LaTeX content when a new quiz is loaded.
 
 
 1.0.0 (2025-10-16)
