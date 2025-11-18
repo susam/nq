@@ -1,0 +1,48 @@
+2025-11-09
+Diskette
+Technology
+Susam Pal
+
+---
+
+If a floppy disk manufacturer were to make a 3&frac12; inch floppy
+disk case measuring exactly 3&frac12; by 3&frac12; inches, would it be
+larger or smaller than the standard 3&frac12; inch floppy disk
+specification?
+
+---
+
+Smaller
+
+---
+
+Larger
+
+---
+
+Exactly the same size as specified in the 3&frac12; inch floppy disk
+specification
+
+---
+
+Cannot be determined
+
+---
+
+No such floppy disk specification exists
+
+---
+
+The ECMA-147 standard specifies that a 3&frac12; inch floppy disk case
+must have an external height of 94.0 mm (&pm;0.3 mm) and an external
+width of 90.0 mm (&plus;0.4 mm/&minus;0.1 mm).  The minimum permitted
+height and width are therefore 93.7 mm and 89.9 mm respectively.
+Converted to inches, these minimums are approximately 3.69 by 3.54
+inches.  A case measuring exactly 3.5 by 3.5 inches would therefore be
+smaller than the dimensions required by the standard.
+
+The term '3&frac12; inch' is only a nominal size.  It does not
+describe any physical measurement in the specification.  The actual
+dimensions are defined entirely in millimetres.  As a result, the
+actual size of the standard case differs from the nominal inch-based
+designation.
