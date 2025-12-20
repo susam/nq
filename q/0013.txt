@@ -1,0 +1,51 @@
+2025-11-20
+PostgreSQL Origin
+Computing, History
+Susam Pal
+
+---
+
+The popular free and open-source relational database management system
+named PostgreSQL was originally named POSTGRES.  What did that name
+mean?
+
+---
+
+The name POSTGRES referred to its origin as a successor to the INGRES
+database from University of California, Berkeley.
+
+---
+
+The name POSTGRES was an acronym formed from the initials of its
+original developers.
+
+---
+
+The name POSTGRES described a database management for postgraduate
+research.
+
+---
+
+The name POSTGRES referred to its use of a relational data model based
+on extended relational algebra.
+
+---
+
+The name POSTGRES referred to a database system intended to be used
+only after all other databases had failed.
+
+---
+
+POSTGRES stood for "post Ingres".  It was a research project led by
+Michael Stonebraker at the University of California, Berkeley,
+intended as a successor to the earlier INGRES database system.
+Version 1 was released to a small number of users in Jun 1989.  After
+the release of version 4.2 in Jun 1994, the project was released under
+an MIT Licence variant.
+
+At that time, the database system used a query language named
+POSTQUEL.  In 1994, Berkeley graduate students Andrew Yu and Jolly
+Chen developed support for Structured Query Language (SQL) to replace
+POSTQUEL.  This led to the release of a new project named Postgres95
+in 1995.  Finally, in 1996, the project was renamed to PostgreSQL to
+reflect its support for SQL.
