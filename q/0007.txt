@@ -1,6 +1,6 @@
 2025-11-07
 Number of Simple, Undirected Graphs
-Mathematics, Graph Theory
+Graph Theory, Mathematics
 Susam Pal
 
 ---

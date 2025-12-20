@@ -1,0 +1,49 @@
+2025-12-20
+The Mother of All Demos
+Computing, History
+Susam Pal
+
+---
+
+<em>The Mother of All Demos</em> is regarded as a landmark computer
+demonstration that featured the introduction of a particular computer
+hardware and software system.  Who delivered this demo?
+
+---
+
+Douglas Engelbart
+
+---
+
+Steve Jobs
+
+---
+
+Alan Kay
+
+---
+
+Tim Berners-Lee
+
+---
+
+Adele Goldberg
+
+---
+
+<em>The Mother of All Demos </em> was a live computer demonstration
+presented on 09 Dec 1968 at the Fall Joint Computer Conference in San
+Francisco.  During this 90 minute presentation, a wide range of
+groundbreaking concepts were shown that would later become central to
+modern computing.
+
+The demonstration introduced ideas such as the computer mouse,
+windowed graphical interfaces, hypertext, real time text editing,
+video conferencing and collaborative work on networked computers.
+These concepts were decades ahead of what was commonly available at
+the time and profoundly influenced the future of human computer
+interaction.
+
+The presentation was delivered by Douglas Engelbart, a computer
+scientist at the Stanford Research Institute, who led the team that
+developed the system used in the demonstration.

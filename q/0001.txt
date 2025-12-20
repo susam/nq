@@ -1,6 +1,6 @@
 2025-10-10
 Integral Domain and Field
-Mathematics, Abstract Algebra
+Abstract Algebra, Mathematics
 Susam Pal
 
 ---

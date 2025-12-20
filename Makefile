@@ -1,5 +1,7 @@
 APP = nq.html
 
+all: nq checks
+
 checks: tidy lint
 
 tidy:
@@ -34,3 +36,6 @@ nq:
 
 test:
 	sbcl --noinform --eval "(defvar *quit* t)" --script test.lisp
+
+lstags:
+	awk 'FNR == 3 { print FILENAME " " $$0 }' q/*.txt
