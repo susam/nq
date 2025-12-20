@@ -1,0 +1,41 @@
+2025-11-20
+Triangle-Free Line Graph
+Graph Theory, Mathematics
+Susam Pal
+
+---
+
+If the line graph \( L(X) \) of a graph \( X \) has no triangle, what does this imply about \( X \)?
+
+---
+
+\( X \) has no vertices of degree at least \( 3 \).
+
+---
+
+\( X \) has no vertices of degree at least \( 2 \).
+
+
+---
+
+\( X \) has no vertices of degree at least \( 4 \).
+
+---
+
+\( X \) is a path.
+
+---
+
+\( X \) is a cycle.
+
+---
+
+The line graph \( L(X) \) has a vertex for each edge of \( X \), with
+two vertices adjacent if the corresponding edges in \( X \) share a
+common vertex.  A triangle in \( L(X) \) corresponds to three edges in
+\( X \) that are pairwise adjacent, which happens exactly when those
+three edges meet at a single vertex.  Therefore, if \( L(X) \) has no
+triangle, the graph \( X \) cannot have any vertex incident to three
+or more edges.  Equivalently, every vertex of \( X \) has degree at
+most \( 2 \), so \( X \) is a disjoint union of paths and cycles.  No
+vertex has degree greater than or equal to \( 3 \).
