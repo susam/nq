@@ -16,7 +16,7 @@ Release Checklist
     M=
     VER=$M.0.0
     git commit -m "Set version to $VER"
-    git tag $VER -m "Nerd Quiz #$VER"
+    git tag $VER -m "Nerd Quiz $VER"
     git push origin main $VER
 
     git remote add cb https://codeberg.org/susam/nq.git
@@ -35,6 +35,8 @@ Release Checklist
   5. Commit to website:
 
      ```
+     M=
+     VER=$M.0.0
      cd ~/git/susam.net/
      git checkout main
      cp ~/git/nq/nq.html content/tree/nq.html
@@ -53,17 +55,15 @@ Release Checklist
      make pub
      ```
 
-  7. Publish to website.
+  7. Make a new release on GitHub.
 
-  8. Make a new release on GitHub.
+  8. Make a new release on Codeberg.
 
-  9. Make a new release on Codeberg.
+  9. Share on Mastodon.
 
- 10. Share on Mastodon.
+ 10. Share on newsletter.
 
- 11. Share on newsletter.
-
- 12. Share on IRC.
+ 11. Share on IRC.
 
 [LICENSE.md]: LICENSE.md
 [CHANGES.md]: CHANGES.md

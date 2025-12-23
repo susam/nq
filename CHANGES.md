@@ -1,6 +1,15 @@
 Changelog
 =========
 
+4.0.0 (UNRELEASED)
+------------------
+
+### Fixed
+
+- Replaced one of the distractors in question #12 with a more accurate
+  one.
+
+
 3.0.0 (2025-12-23)
 ------------------
 

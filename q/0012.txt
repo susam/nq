@@ -5,7 +5,8 @@ Susam Pal
 
 ---
 
-If the line graph \( L(X) \) of a graph \( X \) has no triangle, what does this imply about \( X \)?
+If the line graph \( L(X) \) of a graph \( X \) has no triangle, what
+does this imply about \( X \)?
 
 ---
 
@@ -18,7 +19,7 @@ If the line graph \( L(X) \) of a graph \( X \) has no triangle, what does this 
 
 ---
 
-\( X \) has no vertices of degree at least \( 4 \).
+\( X \) does not contain a cycle.
 
 ---
 
