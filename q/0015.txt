@@ -1,0 +1,67 @@
+2025-12-23
+NR vs FNR
+Computing, Unix
+Susam Pal
+
+---
+
+In the Unix <code>awk</code> command, what is the difference between
+the <code>NR</code> and <code>FNR</code> variables?
+
+---
+
+<code>NR</code> is the ordinal number of the current record across all
+input whereas <code>FNR</code> is the ordinal number of the current
+record in the current input file.
+
+---
+
+<code>NR</code> is the ordinal number of the current record across all
+input whereas <code>FNR</code> is the ordinal number of the current
+file in the list of input files.
+
+---
+
+<code>NR</code> is the number of lines across all input whereas
+<code>FNR</code> is the number of lines in the current file.
+
+
+---
+
+<code>NR</code> is the ordinal number of the current record in the
+input whereas <code>FNR</code> is the ordinal number of the current
+record in the input subtracted from the total number of records in the
+input.
+
+---
+
+None of the above; <code>NR</code> and <code>FNR</code> are synonyms.
+
+---
+
+Both <code>NR</code> and <code>FNR</code> represent ordinal numbers of
+records.  <code>NR</code> is the ordinal number of the current record
+across all input files processed so far.  <code>FNR</code> is the
+ordinal number of the current record in the current input file.  For
+example, consider the following sequence of commands:
+
+<pre>
+<code>printf 'foo\nbar\n' > foo.txt
+printf 'baz\nqux\nquz\n' > baz.txt
+awk '{print NR, FNR, $0}' foo.txt baz.txt</code>
+</pre>
+
+The above sequence of commands prints the following output:
+
+<pre>
+<samp>1 1 foo
+2 2 bar
+3 1 baz
+4 2 qux
+5 3 quz</samp>
+</pre>
+
+<code>FNR</code> is reset to 1 each time <code>awk</code> begins
+reading a new file.  <code>NR</code> increases monotonically as
+<code>awk</code> reads successive records, even when moving from one
+input file to the next.
