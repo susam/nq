@@ -1,6 +1,19 @@
 Changelog
 =========
 
+3.0.0 (2025-12-23)
+------------------
+
+### Added
+
+- Quiz #3 with questions #11 to #15.
+
+### Changed
+
+- Write tags in alphabetical order in each quiz file.
+- Change tag 'Technology' to 'Computing'.
+
+
 2.0.0 (2025-11-18)
 ------------------
 
