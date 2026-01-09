@@ -757,6 +757,8 @@
       }
 
       function formatParagraphs (s) {
+        s = s.replaceAll('\n\n<', '</p><')
+        s = s.replaceAll('>\n\n', '><p>')
         s = s.replaceAll('\n\n', '</p><p>')
         return '<p>' + s + '</p>'
       }

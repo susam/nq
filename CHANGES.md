@@ -6,8 +6,10 @@ Changelog
 
 ### Fixed
 
-- Replaced one of the distractors in question #12 with a more accurate
+- Replace one of the distractors in question #12 with a more accurate
   one.
+- Do not insert empty paragraphs between a paragraph and block-level
+  element like `<pre>`.
 
 
 3.0.0 (2025-12-23)
