@@ -77,6 +77,15 @@
       blockquote, pre {
         padding: 0.5em;
       }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: thin solid #999;
+        padding: 0.3em 0.4em;
+        text-align: left;
+      }
       dialog::backdrop {
         background: #000;
         opacity: 0.7;
@@ -226,6 +235,9 @@
         samp {
           color: #db0;
         }
+        th, td {
+          border-color: #666;
+        }
         .new label:hover {
           background: #333;
         }
@@ -292,7 +304,6 @@
 
       function setupPage () {
         log('setting up page')
-        const maxSet = Math.floor(CARDS.length / CARDS_PER_SET)
         let hash = window.location.hash.slice(1)
         let revealing = false
 
@@ -313,7 +324,7 @@
           setupQuiz(models, revealing, null)
         } else if (/^\d+$/.test(hash)) {
           const n = parseInt(hash)
-          if (n < 1 || n > maxSet) {
+          if (n < 1 || n > maxSet()) {
             setupError('Quiz set #' + n + ' does not exist.')
             return
           }
@@ -321,10 +332,12 @@
             range(CARDS_PER_SET * (n - 1) + 1, CARDS_PER_SET * n + 1)
           )
           setupQuiz(models, revealing, n)
+        } else if (hash === 'toc') {
+          setupToC()
         } else if (hash in SCREENS) {
           setupScreen(hash)
         } else {
-          window.location.hash = '#' + maxSet
+          window.location.hash = '#' + maxSet()
         }
         log('set up page')
       }
@@ -690,6 +703,57 @@
         log('scrolling to top immediately')
         window.scroll({ top: 0 })
         log('set up screen', name)
+      }
+
+      function setupToC () {
+        log('setting up toc')
+        const div = document.createElement('div')
+        const h1 = document.createElement('h1')
+        const table = document.createElement('table')
+        const trHead = document.createElement('tr')
+        const th1 = document.createElement('th')
+        const th2 = document.createElement('th')
+        const th3 = document.createElement('th')
+        h1.innerHTML = 'Table of Contents'
+        th1.innerHTML = 'Quiz'
+        th2.innerHTML = 'Question'
+        th3.innerHTML = 'Title'
+        div.append(h1, table)
+        table.append(trHead)
+        trHead.append(th1, th2, th3)
+        for (let n = 1; n <= maxSet(); n++) {
+          const qStart = (n - 1) * CARDS_PER_SET + 1
+          const qEnd = n * CARDS_PER_SET
+          for (let q = qStart; q <= qEnd; q++) {
+            const tr = document.createElement('tr')
+            if (q == qStart) {
+              const tdQuiz = document.createElement('td')
+              const aQuiz = document.createElement('a')
+              tdQuiz.rowSpan = CARDS_PER_SET
+              aQuiz.href = '#' + n
+              aQuiz.innerHTML = '#' + n
+              tdQuiz.append(aQuiz)
+              tr.append(tdQuiz)
+            }
+            const tdQuestion = document.createElement('td')
+            const aQuestion = document.createElement('a')
+            const tdTitle = document.createElement('td')
+            aQuestion.href = '#q' + q
+            aQuestion.innerHTML = 'Q#' + q
+            tdTitle.innerHTML = CARDS[q - 1].title
+            table.append(tr)
+            tr.append(tdQuestion, tdTitle)
+            tdQuestion.append(aQuestion)
+          }
+        }
+        document.querySelector('main').replaceChildren(div)
+        log('scrolling to top immediately')
+        window.scroll({ top: 0 })
+        log('set up toc')
+      }
+
+      function maxSet () {
+        return Math.floor(CARDS.length / CARDS_PER_SET)
       }
 
       function range (m, n) {
@@ -1154,25 +1218,18 @@
           New quizzes are published whenever I have five fresh
           questions ready.  There is no fixed schedule.
         </p>
-        <h2>URL Tricks</h2>
+        <h2>Navigate</h2>
         <p>
           The hash value in the URL determines the quiz presented to
-          you.  If it is an integer like <a href="#1">#1</a>,
-          <a href="#2">#2</a>, etc., then the corresponding quiz with a set
-          of five questions is loaded.  However, if the hash value
-          starts with the prefix "q", like <a href="#q1">#q1</a>,
-          <a href="#q2">#q2</a>, etc., then a specific question is
-          loaded.  You can also mix and match questions to form a
-          custom quiz.  To do so, use the prefix "q" followed by
-          comma-separated integers as the hash value, e.g.
-          <a href="#q1,3,5">#q1,3,5</a>.
+          you.  Visit <a href="#toc">Table of Contents</a> to find
+          links to all quizzes and questions.
         </p>
         <p>
-          This is a very new project, so currently there is only one
-          quiz.  As more quizzes are added, a few navigation links
-          will be added too to make it easy to to explore the
-          collection, jump to a random quiz or generate a custom set
-          of questions on the fly.
+          Note that while a URL hash like <a href="#1">#1</a> loads a
+          quiz set, a hash like <a href="#q1">#q1</a> loads a specific
+          question.  Further, you can extend the latter by specifying
+          multiple comma separated integers to create an assorted
+          quiz, e.g. <a href="#q1,2,3">#q1,2,3</a>.
         </p>
         <h2>Issues</h2>
         <p>
@@ -1210,6 +1267,7 @@
       <hr>
       <nav>
         <a href="#">Quiz</a>
+        <a href="#toc">Contents</a>
         <a href="#about">About</a>
         <a href="https://susam.net/comments/nq.html">Comments</a>
         <a href="https://github.com/susam/nq">GitHub</a>

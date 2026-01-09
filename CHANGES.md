@@ -4,6 +4,11 @@ Changelog
 4.0.0 (UNRELEASED)
 ------------------
 
+### Added
+
+- Table of contents screen that displays all quizzes and questions
+  along with their titles.
+
 ### Fixed
 
 - Replace one of the distractors in question #12 with a more accurate
