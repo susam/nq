@@ -1188,6 +1188,45 @@
             'None of the above; <code>NR</code> and <code>FNR</code> are synonyms.'
           ],
           explanation: 'Both <code>NR</code> and <code>FNR</code> represent ordinal numbers of\nrecords.  <code>NR</code> is the ordinal number of the current record\nacross all input files processed so far.  <code>FNR</code> is the\nordinal number of the current record in the current input file.  For\nexample, consider the following sequence of commands:\n\n<pre>\n<code>printf \'foo\\nbar\\n\' > foo.txt\nprintf \'baz\\nqux\\nquz\\n\' > baz.txt\nawk \'{print NR, FNR, $0}\' foo.txt baz.txt</code>\n</pre>\n\nThe above sequence of commands prints the following output:\n\n<pre>\n<samp>1 1 foo\n2 2 bar\n3 1 baz\n4 2 qux\n5 3 quz</samp>\n</pre>\n\n<code>FNR</code> is reset to 1 each time <code>awk</code> begins\nreading a new file.  <code>NR</code> increases monotonically as\n<code>awk</code> reads successive records, even when moving from one\ninput file to the next.'
+        },
+        {
+          date: '2026-01-10',
+          title: 'A4 Paper Mass',
+          tags: [
+            'Miscellaneous'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'What is the approximate mass of a single sheet of A4 paper with a\ngrammage of \\( 80 \\, \\mathrm{gsm} \\)?',
+          options: [
+            '\\( 5 \\, \\mathrm{g} \\)',
+            '\\( 2 \\, \\mathrm{g} \\)',
+            '\\( 10 \\, \\mathrm{g} \\)',
+            '\\( 15 \\, \\mathrm{g} \\)',
+            '\\( 20 \\, \\mathrm{g} \\)'
+          ],
+          explanation: 'A standard sheet of A0 paper has an area of \\( 1 \\, \\mathrm{m}^2 \\).\nIf we cut a sheet of A0 paper in half parallel to its shorter side,\neach half is a sheet of A1 paper.  Thus a sheet of A1 paper has an\narea \\( 1/2 \\, \\mathrm{m}^2 \\).  We can keep cutting the halves like\nthis to obtain sheets of A2 paper, A3 paper and so on.  Therefore the\narea of a sheet of A2 paper is \\( 1/4 \\, \\mathrm{m}^2 \\) and that of a\nsheet of A3 paper is \\( 1/8 \\, \\mathrm{m}^2 \\).  Similarly, the area\nof a sheet of A4 paper is \\( 1/16 \\, \\mathrm{m}^2 \\).\n\nThe grammage \\( 80 \\, \\mathrm{gsm} \\) means that the paper has an area\ndensity of \\( 80 \\, \\mathrm{g}/\\mathrm{m}^2 \\).  Therefore the mass of\na sheet of A4 paper is\n\n\\[\n  80 \\, \\mathrm{g}/\\mathrm{m}^2 \\cdot \\frac{1}{16} \\, \\mathrm{m}^2\n  = 5 \\, \\mathrm{g}.\n\\]'
+        },
+        {
+          date: '2026-01-31',
+          title: 'Arctic',
+          tags: [
+            'Etymology',
+            'Miscellaneous'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'What is the original meaning of the term <em>Arctic</em>?',
+          options: [
+            'Near the bear',
+            'Land of the bear',
+            'Eternal ice',
+            'Land of ice',
+            'Northern territory'
+          ],
+          explanation: 'The word <em>Arctic</em> comes from the Greek word <em>arktikos</em>,\nwhich means <em>of the bear</em> or <em>near the bear</em>.  This, in\nturn, comes from <em>arktos</em>, the Greek word for <em>bear</em>.\n\nThe name refers to the constellation Ursa Major, the Great Bear, which\nis prominent in the northern sky.  The Arctic Circle is the region of\nthe Earth located under this northern sky, near the constellation of\nthe bear.\n\nBy contrast, <em>Antarctic</em> comes from the Greek\n<em>antarktikos</em>, meaning <em>opposite the bear</em>.'
         }
       ]
     </script>
