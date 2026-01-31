@@ -1,0 +1,49 @@
+2026-01-10
+A4 Paper Mass
+Miscellaneous
+Susam Pal
+
+---
+
+What is the approximate mass of a single sheet of A4 paper with a
+grammage of \( 80 \, \mathrm{gsm} \)?
+
+---
+
+\( 5 \, \mathrm{g} \)
+
+---
+
+\( 2 \, \mathrm{g} \)
+
+---
+
+\( 10 \, \mathrm{g} \)
+
+---
+
+\( 15 \, \mathrm{g} \)
+
+---
+
+\( 20 \, \mathrm{g} \)
+
+---
+
+A standard sheet of A0 paper has an area of \( 1 \, \mathrm{m}^2 \).
+If we cut a sheet of A0 paper in half parallel to its shorter side,
+each half is a sheet of A1 paper.  Thus a sheet of A1 paper has an
+area \( 1/2 \, \mathrm{m}^2 \).  We can keep cutting the halves like
+this to obtain sheets of A2 paper, A3 paper and so on.  Therefore the
+area of a sheet of A2 paper is \( 1/4 \, \mathrm{m}^2 \) and that of a
+sheet of A3 paper is \( 1/8 \, \mathrm{m}^2 \).  Similarly, the area
+of a sheet of A4 paper is \( 1/16 \, \mathrm{m}^2 \).
+
+The grammage \( 80 \, \mathrm{gsm} \) means that the paper has an area
+density of \( 80 \, \mathrm{g}/\mathrm{m}^2 \).  Therefore the mass of
+a sheet of A4 paper is
+
+\[
+  80 \, \mathrm{g}/\mathrm{m}^2 \cdot \frac{1}{16} \, \mathrm{m}^2
+  = 5 \, \mathrm{g}.
+\]
