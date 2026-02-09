@@ -9,6 +9,11 @@ Changelog
 - Table of contents screen that displays all quizzes and questions
   along with their titles.
 
+### Changed
+
+- Reduce detail in the correct answer for question #13 to make the
+  correct option less obvious.
+
 ### Fixed
 
 - Replace one of the distractors in question #12 with a more accurate

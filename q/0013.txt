@@ -12,7 +12,7 @@ mean?
 ---
 
 The name POSTGRES referred to its origin as a successor to the INGRES
-database from University of California, Berkeley.
+database.
 
 ---
 
