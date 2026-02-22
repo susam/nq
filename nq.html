@@ -1187,7 +1187,7 @@
             '<code>NR</code> is the ordinal number of the current record in the\ninput whereas <code>FNR</code> is the ordinal number of the current\nrecord in the input subtracted from the total number of records in the\ninput.',
             'None of the above; <code>NR</code> and <code>FNR</code> are synonyms.'
           ],
-          explanation: 'Both <code>NR</code> and <code>FNR</code> represent ordinal numbers of\nrecords.  <code>NR</code> is the ordinal number of the current record\nacross all input files processed so far.  <code>FNR</code> is the\nordinal number of the current record in the current input file.  For\nexample, consider the following sequence of commands:\n\n<pre>\n<code>printf \'foo\\nbar\\n\' > foo.txt\nprintf \'baz\\nqux\\nquz\\n\' > baz.txt\nawk \'{print NR, FNR, $0}\' foo.txt baz.txt</code>\n</pre>\n\nThe above sequence of commands prints the following output:\n\n<pre>\n<samp>1 1 foo\n2 2 bar\n3 1 baz\n4 2 qux\n5 3 quz</samp>\n</pre>\n\n<code>FNR</code> is reset to 1 each time <code>awk</code> begins\nreading a new file.  <code>NR</code> increases monotonically as\n<code>awk</code> reads successive records, even when moving from one\ninput file to the next.'
+          explanation: 'Both <code>NR</code> and <code>FNR</code> represent ordinal numbers of\nrecords.  <code>NR</code> is the ordinal number of the current record\nacross all input files processed so far.  <code>FNR</code> is the\nordinal number of the current record in the current input file.  For\nexample, consider the following sequence of commands:\n\n<pre>\n<code>printf \'foo\\nbar\\n\' > foo.txt\nprintf \'baz\\nqux\\nquz\\n\' > baz.txt\nawk \'{print NR, FNR, $0}\' foo.txt baz.txt</code>\n</pre>\n\nThe above sequence of commands prints the following output:\n\n<pre><samp>1 1 foo\n2 2 bar\n3 1 baz\n4 2 qux\n5 3 quz</samp></pre>\n\n<code>FNR</code> is reset to 1 each time <code>awk</code> begins\nreading a new file.  <code>NR</code> increases monotonically as\n<code>awk</code> reads successive records, even when moving from one\ninput file to the next.'
         },
         {
           date: '2026-01-10',
@@ -1262,9 +1262,30 @@
             'M31',
             'M13',
             'M42',
-            'M45'
+            'M45',
+            'None of the above'
           ],
           explanation: 'The Messier objects are a set of 110 astronomical objects catalogued\nby the French astronomer Charles Messier.  M31 is the Messier\ndesignation of the Andromeda Galaxy, the nearest major galaxy to the\nMilky Way and visible to the naked eye under dark skies.  The\nAndromeda Galaxy is also known as NGC 224 in the New General\nCatalogue.\n\nBy contrast, M13 is the Great Globular Cluster in the constellation\nHercules, a dense spherical cluster of hundreds of thousands of\nancient stars.  M42 is the Orion Nebula in the constellation Orion, a\nbright diffuse nebula and active stellar nursery.  M45 is the Pleiades\nin the constellation Taurus, an cluster often called the Seven\nSisters.'
+        },
+        {
+          date: '2026-02-21',
+          title: 'Misophonia',
+          tags: [
+            'Etymology',
+            'Miscellaneous'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'What does the term <em>misophonia</em> mean in clinical psychology?',
+          options: [
+            'A strong emotional reaction to specific sounds',
+            'Fear of loud noises',
+            'Loss of hearing in one ear',
+            'An inability to recognise familiar voices',
+            'Heightened sensitivity to all sound'
+          ],
+          explanation: 'The word <em>misophonia</em> comes from the Greek <em>misos</em>,\nmeaning hatred, and <em>phone</em>, meaning sound.  Literally, it\nmeans hatred of sound.  In clinical psychology, however, this term\nrefers to a condition in which particular ordinary sounds such as\nchewing, tapping or breathing trigger intense feelings of irritation,\nanger or distress.  Unlike general sound sensitivity, the reaction is\nusually tied to specific trigger sounds.'
         }
       ]
     </script>

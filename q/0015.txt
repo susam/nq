@@ -53,13 +53,11 @@ awk '{print NR, FNR, $0}' foo.txt baz.txt</code>
 
 The above sequence of commands prints the following output:
 
-<pre>
-<samp>1 1 foo
+<pre><samp>1 1 foo
 2 2 bar
 3 1 baz
 4 2 qux
-5 3 quz</samp>
-</pre>
+5 3 quz</samp></pre>
 
 <code>FNR</code> is reset to 1 each time <code>awk</code> begins
 reading a new file.  <code>NR</code> increases monotonically as
