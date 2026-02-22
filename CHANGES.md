@@ -1,11 +1,12 @@
 Changelog
 =========
 
-4.0.0 (UNRELEASED)
+4.0.0 (2026-02-22)
 ------------------
 
 ### Added
 
+- Quiz #4 with questions #16 to #20.
 - Table of contents screen that displays all quizzes and questions
   along with their titles.
 

@@ -4,7 +4,7 @@ Developer Notes
 Release Checklist
 -----------------
 
- 1. Update copyright in [LICENSE.md][].
+ 1. Update copyright in [LICENCE.md][].
  2. Update [CHANGES.md][].
  3. Run the following commands:
 
@@ -20,7 +20,7 @@ Release Checklist
     git push origin main $VER
 
     git remote add cb https://codeberg.org/susam/nq.git
-    git push cb --all
+    git push cb main
     git push cb --tags
     ```
 
@@ -65,5 +65,5 @@ Release Checklist
 
  11. Share on IRC.
 
-[LICENSE.md]: LICENSE.md
+[LICENCE.md]: LICENCE.md
 [CHANGES.md]: CHANGES.md
