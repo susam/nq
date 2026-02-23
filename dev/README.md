@@ -8,12 +8,15 @@ Release Checklist
  2. Update [CHANGES.md][].
  3. Run the following commands:
 
+    ```
+    M=
+    ```
+
     ```sh
     make checks
     git status
     git add -p
 
-    M=
     VER=$M.0.0
     git commit -m "Set version to $VER"
     git tag $VER -m "Nerd Quiz $VER"
@@ -32,10 +35,15 @@ Release Checklist
      em content/tree/code/news/nq/$VER.post.html
      ```
 
+     Remember to change `key` while writing the post.
+
   5. Commit to website:
 
      ```
      M=
+     ```
+
+     ```
      VER=$M.0.0
      cd ~/git/susam.net/
      git checkout main
@@ -44,6 +52,10 @@ Release Checklist
      git add -p
      git add content/tree/code/news/nq/$VER.post.html
      git commit -m "Add Nerd Quiz version $VER"
+     git log -n 1 --stat
+     ```
+
+     ```
      git push
      ```
 
@@ -52,7 +64,7 @@ Release Checklist
      ```
      git checkout cu
      git rebase main
-     make pub
+     make cu
      ```
 
   7. Make a new release on GitHub.

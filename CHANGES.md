@@ -1,6 +1,14 @@
 Changelog
 =========
 
+5.0.0 (UNRELEASED)
+------------------
+
+### Changed
+
+- Omit full stops from the options in question #18.
+
+
 4.0.0 (2026-02-22)
 ------------------
 
