@@ -7,6 +7,7 @@ Changelog
 ### Changed
 
 - Omit full stops from the options in question #18.
+- Centre quiz and question numbers in the table of contents.
 
 
 4.0.0 (2026-02-22)
