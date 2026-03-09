@@ -4,11 +4,15 @@ Changelog
 5.0.0 (UNRELEASED)
 ------------------
 
+### Added
+
+- Quiz 5 with Q21 to Q25.
+
 ### Changed
 
-- Omit full stops from the options in question #18.
+- Omit full stops from the options in Q18.
 - Centre quiz and question numbers in the table of contents.
-- Remove some unnecessary commas from the explanation section of question #20.
+- Remove unnecessary commas from the explanatory note of Q20.
 
 
 4.0.0 (2026-02-22)
@@ -16,19 +20,18 @@ Changelog
 
 ### Added
 
-- Quiz #4 with questions #16 to #20.
+- Quiz 4 with Q16 to Q20.
 - Table of contents screen that displays all quizzes and questions
   along with their titles.
 
 ### Changed
 
-- Reduce detail in the correct answer for question #13 to make the
-  correct option less obvious.
+- Reduce detail in the correct answer for Q13 to make the correct
+  option less obvious.
 
 ### Fixed
 
-- Replace one of the distractors in question #12 with a more accurate
-  one.
+- Replace one of the distractors in Q12 with a more accurate one.
 - Do not insert empty paragraphs between a paragraph and block-level
   element like `<pre>`.
 
@@ -38,7 +41,7 @@ Changelog
 
 ### Added
 
-- Quiz #3 with questions #11 to #15.
+- Quiz 3 with Q11 to Q15.
 
 ### Changed
 
@@ -51,7 +54,7 @@ Changelog
 
 ### Added
 
-- Quiz #2 with questions #6 to #10.
+- Quiz 2 with Q6 to Q10.
 - Add quiz number or question number to the title.  If the quiz is
   composed of an arbitrary list of questions, mention 'Assorted' in
   the title.
@@ -69,8 +72,8 @@ Changelog
 
 ### Changed
 
-- Replace 'None of the above' option for Question #5 (Phosphor) with
-  another incorrect answer.
+- Replace 'None of the above' option for Q5 (Phosphor) with another
+  incorrect answer.
 - Change nerd level phrase from 'Your nerd level today' to 'You have
   been deemed'.
 - Rename nerd level 'Rookie' to 'Neophyte'.
@@ -92,7 +95,7 @@ Changelog
 
 ### Added
 
-- Quiz #1 with questions #1 to #5.
+- Quiz 1 with questions Q1 to Q5.
 - Light and dark colour themes.
 - Load the latest quiz by default.
 - Load individual questions using location hash like `#q1`, `#q2`, etc.
