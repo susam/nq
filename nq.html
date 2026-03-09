@@ -1329,7 +1329,27 @@
             'About the size of a tennis ball',
             'About the size of a cat\'s femur'
           ],
-          explanation: 'The brain of a domestic cat is roughly the size of a walnut.  It is\nabout 5 cm in length.  It typically has a mass between 25 g and 30 g.\nA cat\'s brain usually has a mass of less than 1% of its total body\nmass.  By comparison, the human brain has a mass of about 2% of the\ntotal body mass.\n\nDespite its small size, a cat\'s brain is highly specialised for\nsensory informatino processing, balance and motor control.  Cats rely\nheavily on vision, hearing, smell and whisker-based touch.  The feline\nbrain is good at observational learning and problem-solving as well as\nretaining long-term memories.'
+          explanation: 'The brain of a domestic cat is roughly the size of a walnut.  It is\nabout 5 cm in length.  It typically has a mass between 25 g and 30 g.\nA cat\'s brain usually has a mass of less than 1% of its total body\nmass.  By comparison, the human brain has a mass of about 2% of the\ntotal body mass.\n\nDespite its small size, a cat\'s brain is highly specialised for\nsensory information processing, balance and motor control.  Cats rely\nheavily on vision, hearing, smell and whisker-based touch.  The feline\nbrain is good at observational learning and problem-solving as well as\nretaining long-term memories.'
+        },
+        {
+          date: '2026-03-09',
+          title: 'Print Between Matching Lines',
+          tags: [
+            'Computing',
+            'Unix'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'Which of the following commands prints lines between a line containing\nthe letter <code>A</code> and a line containing the letter\n<code>B</code>, excluding the two matching lines?',
+          options: [
+            '<code>sed \'/A/,/B/!d; //d\'</code>',
+            '<code>sed \'s/A/B/g\'</code>',
+            '<code>sed \'/A/,/B/d\'</code>',
+            '<code>sed \'/A/,/B/!d\'</code>',
+            '<code>sed -n \'/A/,/B/p\'</code>'
+          ],
+          explanation: 'The correct answer is <code>sed \'/A/,/B/!d; //d\'</code>.\n\nHere is a working example:\n\n<pre><samp>$ <kbd>printf \'1\\n2\\nA\\nX\\nY\\nB\\n4\\n5\\n\' | sed \'/A/,/B/!d; //d\'</kbd>\nX\nY</samp></pre>\n\nThe negated command <code>!d</code> deletes everything not matched by\nthe 2-address range <code>/A/,/B/</code>, i.e. it deletes everything\nbefore the line matching <code>/A/</code> as well as everything after\nthe line matching <code>/B/</code>.  This leaves only the lines from\n<code>A</code> to <code>B</code>, inclusive. Finally, <code>//</code>\n(the empty regular expression) reuses the most recently used regular\nexpression.  So when <code>/A/,/B/</code> matches <code>A</code>, the\ncommand <code>//d</code> matches <code>A</code> and deletes it.\nSimilarly, when <code>/A/,/B/</code> matches <code>B</code>, the\ncommand <code>//d</code> matches <code>B</code> and deletes it.  In\nthe end, we are left with the lines between <code>A</code> and\n<code>B</code>, exclusive.\n\nThe command <code>sed \'s/A/B/g\'</code> substitutes all occurrences of\n<code>A</code> with <code>B</code> on each line as shown below:\n\n<pre><samp>$ <kbd>printf \'1\\n2\\nA\\nX\\nY\\nB\\n4\\n5\\n\' | sed \'s/A/B/g\'</kbd>\n1\n2\nB\nX\nY\nB\n4\n5</samp></pre>\n\nThe command <code>sed \'/A/,/B/d\'</code> deletes everything from the\nline matching <code>/A/</code> to the line matching <code>/B/</code>,\nincluding the matching lines.  For example:\n\n<pre><samp>$ <kbd>printf \'1\\n2\\nA\\nX\\nY\\nB\\n4\\n5\\n\' | sed \'/A/,/B/d\'</kbd>\n1\n2\n4\n5</samp></pre>\n\nThe command <code>sed \'/A/,/B/!d\'</code> deletes everything not\nmatched by the 2-address range <code>/A/,/B/</code>.\n\n<pre><samp>$ <kbd>printf \'1\\n2\\nA\\nX\\nY\\nB\\n4\\n5\\n\' | sed \'/A/,/B/!d\'</kbd>\nA\nX\nY\nB</samp></pre>\n\nThe <code>-n</code> option of the command <code>sed -n\n\'/A/,/B/p\'</code> first suppresses the default behaviour of printing\neach line to output.  Then the remainder of the command then prints\nonly lines matched by the 2-address range <code>/A/,/B/</code>.  The\nend result is the same as that of the above command.  Here is an\nexample:\n\n<pre><samp>$ <kbd>printf \'1\\n2\\nA\\nX\\nY\\nB\\n4\\n5\\n\' | sed -n \'/A/,/B/p\'</kbd>\nA\nX\nY\nB</samp></pre>'
         }
       ]
     </script>

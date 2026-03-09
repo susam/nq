@@ -1,0 +1,98 @@
+2026-03-09
+Print Between Matching Lines
+Computing, Unix
+Susam Pal
+
+---
+
+Which of the following commands prints lines between a line containing
+the letter <code>A</code> and a line containing the letter
+<code>B</code>, excluding the two matching lines?
+
+---
+
+<code>sed '/A/,/B/!d; //d'</code>
+
+---
+
+<code>sed 's/A/B/g'</code>
+
+---
+
+<code>sed '/A/,/B/d'</code>
+
+---
+
+<code>sed '/A/,/B/!d'</code>
+
+---
+
+<code>sed -n '/A/,/B/p'</code>
+
+---
+
+The correct answer is <code>sed '/A/,/B/!d; //d'</code>.
+
+Here is a working example:
+
+<pre><samp>$ <kbd>printf '1\n2\nA\nX\nY\nB\n4\n5\n' | sed '/A/,/B/!d; //d'</kbd>
+X
+Y</samp></pre>
+
+The negated command <code>!d</code> deletes everything not matched by
+the 2-address range <code>/A/,/B/</code>, i.e. it deletes everything
+before the line matching <code>/A/</code> as well as everything after
+the line matching <code>/B/</code>.  This leaves only the lines from
+<code>A</code> to <code>B</code>, inclusive. Finally, <code>//</code>
+(the empty regular expression) reuses the most recently used regular
+expression.  So when <code>/A/,/B/</code> matches <code>A</code>, the
+command <code>//d</code> matches <code>A</code> and deletes it.
+Similarly, when <code>/A/,/B/</code> matches <code>B</code>, the
+command <code>//d</code> matches <code>B</code> and deletes it.  In
+the end, we are left with the lines between <code>A</code> and
+<code>B</code>, exclusive.
+
+The command <code>sed 's/A/B/g'</code> substitutes all occurrences of
+<code>A</code> with <code>B</code> on each line as shown below:
+
+<pre><samp>$ <kbd>printf '1\n2\nA\nX\nY\nB\n4\n5\n' | sed 's/A/B/g'</kbd>
+1
+2
+B
+X
+Y
+B
+4
+5</samp></pre>
+
+The command <code>sed '/A/,/B/d'</code> deletes everything from the
+line matching <code>/A/</code> to the line matching <code>/B/</code>,
+including the matching lines.  For example:
+
+<pre><samp>$ <kbd>printf '1\n2\nA\nX\nY\nB\n4\n5\n' | sed '/A/,/B/d'</kbd>
+1
+2
+4
+5</samp></pre>
+
+The command <code>sed '/A/,/B/!d'</code> deletes everything not
+matched by the 2-address range <code>/A/,/B/</code>.
+
+<pre><samp>$ <kbd>printf '1\n2\nA\nX\nY\nB\n4\n5\n' | sed '/A/,/B/!d'</kbd>
+A
+X
+Y
+B</samp></pre>
+
+The <code>-n</code> option of the command <code>sed -n
+'/A/,/B/p'</code> first suppresses the default behaviour of printing
+each line to output.  Then the remainder of the command then prints
+only lines matched by the 2-address range <code>/A/,/B/</code>.  The
+end result is the same as that of the above command.  Here is an
+example:
+
+<pre><samp>$ <kbd>printf '1\n2\nA\nX\nY\nB\n4\n5\n' | sed -n '/A/,/B/p'</kbd>
+A
+X
+Y
+B</samp></pre>
