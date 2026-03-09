@@ -8,6 +8,7 @@ Changelog
 
 - Omit full stops from the options in question #18.
 - Centre quiz and question numbers in the table of contents.
+- Remove some unnecessary commas from the explanation section of question #20.
 
 
 4.0.0 (2026-02-22)
