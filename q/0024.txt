@@ -1,0 +1,56 @@
+2026-11-22
+Music Note Values
+Music
+Susam Pal
+
+---
+
+In musical notation, what are the British names for whole, half,
+quarter and eighth notes, respectively?
+
+---
+
+Semibreve, minim, crotchet and quaver
+
+---
+
+Minim, semibreve, quaver and crotchet
+
+---
+
+Semibreve, crotchet, minim and semiquaver
+
+---
+
+Breve, minim, crotchet and semiquaver
+
+---
+
+Whole note, half note, quarter note and eighth note
+
+---
+
+The British names for whole, half, quarter and eighth notes are
+semibreve, minim, crotchet and quaver, respectively.  The table below
+shows these and other note values with their American equivalents.  Each
+value is half as long as the one above it.
+
+<table>
+<thead>
+<tr><th>British Name</th><th>American Name</th></tr>
+</thead>
+<tbody>
+<tr><td>Breve</td><td>Double whole note</td></tr>
+<tr><td>Semibreve</td><td>Whole note</td></tr>
+<tr><td>Minim</td><td>Half note</td></tr>
+<tr><td>Crotchet</td><td>Quarter note</td></tr>
+<tr><td>Quaver</td><td>Eighth note</td></tr>
+<tr><td>Semiquaver</td><td>Sixteenth note</td></tr>
+<tr><td>Demisemiquaver</td><td>Thirty-second note</td></tr>
+<tr><td>Hemidemisemiquaver</td><td>Sixty-fourth note</td></tr>
+</tbody>
+</table>
+
+Shorter note values are very rare in musical notation.  A 128th note is
+called a semihemidemisemiquaver, and a 256th note a
+demisemihemidemisemiquaver.

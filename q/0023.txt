@@ -5,8 +5,8 @@ Susam Pal
 
 ---
 
-Which of the following commands prints lines between a line containing
-the letter <code>A</code> and a line containing the letter
+Which of the following Unix commands prints lines between a line
+containing the letter <code>A</code> and a line containing the letter
 <code>B</code>, excluding the two matching lines?
 
 ---
