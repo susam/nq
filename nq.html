@@ -1374,6 +1374,25 @@
             'Whole note, half note, quarter note and eighth note'
           ],
           explanation: 'The British names for whole, half, quarter and eighth notes are\nsemibreve, minim, crotchet and quaver, respectively.  The table below\nshows these and other note values with their American equivalents.  Each\nvalue is half as long as the one above it.\n\n<table>\n<thead>\n<tr><th>British Name</th><th>American Name</th></tr>\n</thead>\n<tbody>\n<tr><td>Breve</td><td>Double whole note</td></tr>\n<tr><td>Semibreve</td><td>Whole note</td></tr>\n<tr><td>Minim</td><td>Half note</td></tr>\n<tr><td>Crotchet</td><td>Quarter note</td></tr>\n<tr><td>Quaver</td><td>Eighth note</td></tr>\n<tr><td>Semiquaver</td><td>Sixteenth note</td></tr>\n<tr><td>Demisemiquaver</td><td>Thirty-second note</td></tr>\n<tr><td>Hemidemisemiquaver</td><td>Sixty-fourth note</td></tr>\n</tbody>\n</table>\n\nShorter note values are very rare in musical notation.  A 128th note is\ncalled a semihemidemisemiquaver, and a 256th note a\ndemisemihemidemisemiquaver.'
+        },
+        {
+          date: '2026-11-23',
+          title: 'ID3v2.3 Frame IDs',
+          tags: [
+            'Computing',
+            'Audio'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'According to the ID3v2.3 specification, which frame IDs identify the\nsong title, lead artist and year, respectively?',
+          options: [
+            '<code>TIT2</code>, <code>TPE1</code>, <code>TYER</code>',
+            '<code>TT2</code>, <code>TP1</code>, <code>TYE</code>',
+            '<code>TIT2</code>, <code>TPE1</code>, <code>TDRC</code>',
+            '<code>TIT1</code>, <code>TPE3</code>, <code>TCOP</code>'
+          ],
+          explanation: 'In an MP3 file, an ID3 tag stores metadata such as the title, artist,\nalbum, year and copyright information.  ID3v2 tags organise this\ninformation into frames.  Each frame has an ID that indicates what\ninformation it stores.\n\nIn ID3v2.3, the <code>TIT2</code> frame stores the song title,\n<code>TPE1</code> stores the lead artist or performer and\n<code>TYER</code> stores the year.\n\nIn ID3v2.2, <code>TT2</code>, <code>TP1</code> and <code>TYE</code>\nidentified the same fields as <code>TIT2</code>, <code>TPE1</code> and\n<code>TYER</code>, respectively.  ID3v2.2 used three-character frame\nIDs.\n\nID3v2.4 uses <code>TDRC</code> for recording time, but this frame ID\nis not defined in ID3v2.3.\n\nThe frame IDs <code>TIT1</code>, <code>TPE3</code> and\n<code>TCOP</code> are valid in ID3v2.3, but identify a content group\ndescription, a conductor and a copyright message, respectively.'
         }
       ]
     </script>

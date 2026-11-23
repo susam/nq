@@ -1,0 +1,48 @@
+2026-11-23
+ID3v2.3 Frame IDs
+Computing, Audio
+Susam Pal
+
+---
+
+According to the ID3v2.3 specification, which frame IDs identify the
+song title, lead artist and year, respectively?
+
+---
+
+<code>TIT2</code>, <code>TPE1</code>, <code>TYER</code>
+
+---
+
+<code>TT2</code>, <code>TP1</code>, <code>TYE</code>
+
+---
+
+<code>TIT2</code>, <code>TPE1</code>, <code>TDRC</code>
+
+---
+
+<code>TIT1</code>, <code>TPE3</code>, <code>TCOP</code>
+
+---
+
+In an MP3 file, an ID3 tag stores metadata such as the title, artist,
+album, year and copyright information.  ID3v2 tags organise this
+information into frames.  Each frame has an ID that indicates what
+information it stores.
+
+In ID3v2.3, the <code>TIT2</code> frame stores the song title,
+<code>TPE1</code> stores the lead artist or performer and
+<code>TYER</code> stores the year.
+
+In ID3v2.2, <code>TT2</code>, <code>TP1</code> and <code>TYE</code>
+identified the same fields as <code>TIT2</code>, <code>TPE1</code> and
+<code>TYER</code>, respectively.  ID3v2.2 used three-character frame
+IDs.
+
+ID3v2.4 uses <code>TDRC</code> for recording time, but this frame ID
+is not defined in ID3v2.3.
+
+The frame IDs <code>TIT1</code>, <code>TPE3</code> and
+<code>TCOP</code> are valid in ID3v2.3, but identify a content group
+description, a conductor and a copyright message, respectively.
