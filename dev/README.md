@@ -13,7 +13,7 @@ Release Checklist
     ```
 
     ```sh
-    make checks
+    make chk
     git status
     git add -p
 
@@ -22,9 +22,7 @@ Release Checklist
     git tag $VER -m "Nerd Quiz $VER"
     git push origin main $VER
 
-    git remote add cb https://codeberg.org/susam/nq.git
-    git push cb main
-    git push cb --tags
+    make cc
     ```
 
   4. Write release notes:

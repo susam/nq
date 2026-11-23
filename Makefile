@@ -77,8 +77,8 @@ cc:
 	git remote remove origin || :
 	git remote add origin "$$(git remote get-url cc)"
 	git remote -v
-	git push origin main
-	git push cc main
+	git push origin main --tags
+	git push cc main --tags
 
 cp:
 	cp $(NAME).html ../susam.net/content/tree/
