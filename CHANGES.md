@@ -1,6 +1,14 @@
 Changelog
 =========
 
+6.0.0 (UNPUBLISHED)
+-------------------
+
+### Changed
+
+- Label the table of contents link 'ToC'.
+
+
 5.0.0 (2026-11-23)
 ------------------
 
