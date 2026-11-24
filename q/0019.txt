@@ -29,16 +29,19 @@ None of the above
 
 ---
 
-The Messier objects are a set of 110 astronomical objects catalogued
-by the French astronomer Charles Messier.  M31 is the Messier
-designation of the Andromeda Galaxy, the nearest major galaxy to the
-Milky Way and visible to the naked eye under dark skies.  The
-Andromeda Galaxy is also known as NGC 224 in the New General
-Catalogue.
+The <em>Messier catalogue</em> is a list of 110 astronomical objects
+originally compiled by the French astronomer Charles Messier.  The
+first version was published in 1774 with 45 objects.  More objects
+were added to the catalogue later by various astronomers thereby
+expanding the list to 110 objects.
 
-By contrast, M13 is the Great Globular Cluster in the constellation
-Hercules, a dense spherical cluster of hundreds of thousands of
-ancient stars.  M42 is the Orion Nebula in the constellation Orion, a
-bright diffuse nebula and active stellar nursery.  M45 is the Pleiades
-in the constellation Taurus, an cluster often called the Seven
-Sisters.
+The Andromeda Galaxy is listed as M31 in this catalogue.  It is the
+closest major galaxy to the Milky Way.  It can be seen with the naked
+eye on a dark, clear night.  The Andromeda Galaxy is also known as NGC
+224 in the <em>New General Catalogue</em>, compiled by the Danish
+astronomer John Louis Emil Dreyer and published in 1888.
+
+M13 is the Great Globular Cluster in the constellation Hercules.  It
+contains hundreds of thousands of ancient stars packed closely
+together.  M42 is the Orion Nebula.  M45 is the Pleiades, a star
+cluster in the constellation Taurus, also known as the Seven Sisters.

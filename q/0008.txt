@@ -30,13 +30,13 @@ Tennis
 ---
 
 The <em>International Radiotelephony Spelling Alphabet</em> assigns a
-unique word to each letter of the English alphabet to ensure clarity
-in spoken communication, especially over radio or telephone, where
-signals may be noisy or distorted.  It is the standard used by the
-International Civil Aviation Organisation (ICAO), the North Atlantic
-Treaty Organisation (NATO) and several other organisations for
-communication over radio or telephone.  Therefore, it is also commonly
-known as the NATO spelling alphabet or the ICAO spelling alphabet.
+word to each letter of the English alphabet.  This makes it easier to
+communicate clearly over radio or telephone, even when the signal is
+noisy or distorted.  It is the standard used by the International
+Civil Aviation Organisation (ICAO), the North Atlantic Treaty
+Organisation (NATO) and several other organisations for communication
+over radio or telephone.  Therefore, it is also commonly known as the
+NATO spelling alphabet or the ICAO spelling alphabet.
 
 In this alphabet, each letter of the alphabet is represented by a code
 word.  The complete list of code words is: Alfa, Bravo, Charlie,

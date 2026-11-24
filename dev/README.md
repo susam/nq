@@ -20,7 +20,6 @@ Release Checklist
     VER=$M.0.0
     git commit -m "Set version to $VER"
     git tag $VER -m "Nerd Quiz $VER"
-    git push origin main $VER
 
     make cc
     ```
@@ -28,9 +27,9 @@ Release Checklist
   4. Write release notes:
 
      ```sh
-     cd ~/git/susam.net/
+     cd ~/src/susam.net/
      git checkout main
-     em content/tree/code/news/nq/$VER.post.html
+     em ~/src/susam.net/content/tree/code/news/nq/$VER.post.html
      ```
 
      Remember to change `key` while writing the post.

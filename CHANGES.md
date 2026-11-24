@@ -7,6 +7,7 @@ Changelog
 ### Changed
 
 - Label the table of contents link 'ToC'.
+- Simplify options and explanations in existing quiz questions.
 
 
 5.0.0 (2026-11-23)

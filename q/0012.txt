@@ -31,12 +31,13 @@ does this imply about \( X \)?
 
 ---
 
-The line graph \( L(X) \) has a vertex for each edge of \( X \), with
-two vertices adjacent if the corresponding edges in \( X \) share a
-common vertex.  A triangle in \( L(X) \) corresponds to three edges in
-\( X \) that are pairwise adjacent, which happens exactly when those
-three edges meet at a single vertex.  Therefore, if \( L(X) \) has no
-triangle, the graph \( X \) cannot have any vertex incident to three
-or more edges.  Equivalently, every vertex of \( X \) has degree at
-most \( 2 \), so \( X \) is a disjoint union of paths and cycles.  No
-vertex has degree greater than or equal to \( 3 \).
+In the line graph \( L(X) \), each edge of \( X \) becomes a vertex.
+Two vertices in \( L(X) \) are adjacent if their corresponding edges
+in \( X \) have a common vertex.
+
+Suppose \( L(X) \) has no triangles.  If any vertex in \( X \) belongs
+to three or more edges, those edges would correspond to three vertices
+that form a triangle in \( L(X) \).  Since \( L(X) \) has no
+triangles, \( X \) cannot have a vertex that belongs to three or more
+edges.  Therefore every vertex in \( X \) has degree at most \( 2 \),
+i.e. no vertex of \( X \) has degree at least \( 3 \).

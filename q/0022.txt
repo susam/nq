@@ -35,8 +35,8 @@ A cat's brain usually has a mass of less than 1% of its total body
 mass.  By comparison, the human brain has a mass of about 2% of the
 total body mass.
 
-Despite its small size, a cat's brain is highly specialised for
-sensory information processing, balance and motor control.  Cats rely
-heavily on vision, hearing, smell and whisker-based touch.  The feline
-brain is good at observational learning and problem-solving as well as
-retaining long-term memories.
+Much of a cat's brain is devoted to processing sensory information and
+controlling its movements.  Cats make extensive use of their sight,
+hearing and sense of smell, and use their whiskers to feel their
+immediate surroundings.  They can also learn by watching other
+animals, solve problems and remember things for long periods of time.

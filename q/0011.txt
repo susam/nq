@@ -33,17 +33,12 @@ Adele Goldberg
 
 <em>The Mother of All Demos </em> was a live computer demonstration
 presented on 09 Dec 1968 at the Fall Joint Computer Conference in San
-Francisco.  During this 90 minute presentation, a wide range of
-groundbreaking concepts were shown that would later become central to
-modern computing.
+Francisco.  During the 90-minute presentation, the audience was shown
+a working computer mouse, windowed graphical interfaces, hypertext,
+real-time text editing, video conferencing and collaborative work on
+networked computers.  Such technologies were unusual in 1968, but many
+of them eventually became part of everyday computing.
 
-The demonstration introduced ideas such as the computer mouse,
-windowed graphical interfaces, hypertext, real time text editing,
-video conferencing and collaborative work on networked computers.
-These concepts were decades ahead of what was commonly available at
-the time and profoundly influenced the future of human computer
-interaction.
-
-The presentation was delivered by Douglas Engelbart, a computer
-scientist at the Stanford Research Institute, who led the team that
-developed the system used in the demonstration.
+The demonstration was given by Douglas Engelbart, a computer scientist
+at the Stanford Research Institute.  Engelbart and his team had built
+the computer system used in the demonstration.
