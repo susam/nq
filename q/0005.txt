@@ -53,7 +53,7 @@ this glow is due to oxidation, not phosphorescence.  This phenomenon
 is known as <em>chemiluminescence</em>, the emission of light as a
 result of a chemical reaction.  In fact, it is the chemiluminescence
 of white phosphorus that originally inspired the term phosphorescence.
-But phosphorescence and chemiluminescence two are unrelated phenomena.
+But phosphorescence and chemiluminescence are two distinct phenomena.
 
 Finally, neither phosphor nor phosphorus is used as a filament in
 incandescent lamps.  Filaments in such lamps are typically made of

@@ -31,9 +31,9 @@ None of the above.
 
 ---
 
-Every infinite integral domain is not a field.  For example, the set
+Not every infinite integral domain is a field.  For example, the set
 of all integers is an integral domain but it is not a field.  As a
-result, every integral domain is not a field either.
+result, not every integral domain is a field either.
 
 In fact, every finite integral domain is a field.  This can be shown
 as follows.
