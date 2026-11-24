@@ -8,6 +8,7 @@ Changelog
 
 - Label the table of contents link 'ToC'.
 - Simplify options and explanations in existing quiz questions.
+- Add the missing fifth option to Q21.
 
 
 5.0.0 (2026-11-23)

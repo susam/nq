@@ -26,6 +26,10 @@ A medical reference book on disorders of auditory processing.
 
 ---
 
+A reference book on the rules and conventions of music engraving.
+
+---
+
 Hart's Rules is the oldest continuously updated style guide in
 English.  The first edition appeared in 1893 under the title <em>Rules
 for Compositors and Readers at the University Press, Oxford</em>.  It
