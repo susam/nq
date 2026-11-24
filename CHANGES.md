@@ -11,6 +11,11 @@ Changelog
 - Add the missing fifth option to Q21.
 
 
+### Fixed
+
+- Fix broken comment links.
+
+
 5.0.0 (2026-11-23)
 ------------------
 
